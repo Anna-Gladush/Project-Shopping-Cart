@@ -10,7 +10,8 @@ export const Card = ({title, img, description}) => {
         <button className="decrement">-</button>
       </div>
       <p>{description}</p>
-      <button className="add-to-cart">Add to Cart</button>
+      <button className="add-to-cart">Add to cart</button>
+      <button className="go-back">Go back</button>
     </div>
   )
 }
