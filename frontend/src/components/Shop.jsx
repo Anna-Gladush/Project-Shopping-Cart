@@ -2,9 +2,7 @@ export const Shop = ({products, genres}) => {
 
   const genreList = genres.map(genre => {
     return (
-      <li key={genre}>
-        <p>{genre}</p>
-      </li>
+      <a key={genre}>{genre}</a>
     )
   })
   const productList = products.map(product => {
@@ -25,10 +23,8 @@ export const Shop = ({products, genres}) => {
         <p>Shop</p>
       </div>
       <div className="categories">
-        <ul>
-        <li>All</li>
+        <a>All</a>
         {genreList}
-        </ul>
 
       </div>
       <div className="products">

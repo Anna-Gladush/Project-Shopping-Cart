@@ -22,7 +22,7 @@ export const Card = ({title, img, artists, year, tracklist, num_for_sale, lowest
 
       </div>
       <div className="quantity">
-        <input type="number" max={num_for_sale}/>
+        <input type="number" max={num_for_sale} id={"quantity-of-" + title} name={"quantity-of-" + title}/>
         <button className="increment">+</button>
         <button className="decrement">-</button>
       </div>
