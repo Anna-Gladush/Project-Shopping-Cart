@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-let headers = new Headers({
-  'Content-Type': 'application/json',
-  'User-Agent': 'Signal-to-Noise',
-  // 'Authorization': `Discogs token=${token}`
-})
 // Custom hook!!!!
 const useDiscoData = (album_id) => {
   const [data, setData] = useState(null);
@@ -12,11 +8,10 @@ const useDiscoData = (album_id) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    album_id.forEach(id => {
-    fetch(`https://api.discogs.com/masters/${id}`, {
-      method  : 'GET', 
-      headers : headers, 
-    })
+    // album_id.forEach(id => {
+    // fetch(`https://api.discogs.com/masters/${id}`, {
+    // })
+    fetch(`https://localhost:8080/api/data/${album_id}`)
       .then((res) => {
         if (res.status >= 400) throw new Error("Server Error");
         return res.json();
@@ -37,7 +32,8 @@ const useDiscoData = (album_id) => {
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false))
-  })}, [album_id]);
+  // })
+}, [album_id]);
 
   return {data, error, loading}
 }

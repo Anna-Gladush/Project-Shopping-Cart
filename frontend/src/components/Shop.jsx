@@ -1,11 +1,26 @@
-import { useParams } from "react-router";
+export const Shop = ({products}) => {
 
-
-export const Shop = () => {
-  const { page } = useParams();
+  products.map(product => {
+    return (
+      <>
+        {product}
+      </>
+    )
+  })
   return (
     <div className="shop">
-      {page}
+      <h2>Shop</h2>
+      <div className="breadcrumbs">
+        <p>Home</p>
+        <p>{">"}</p>
+        <p>Shop</p>
+      </div>
+      <div className="categories">
+
+      </div>
+      <div className="products">
+
+      </div>
     </div>
   )
 }
