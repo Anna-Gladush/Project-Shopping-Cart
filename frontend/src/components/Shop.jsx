@@ -1,10 +1,19 @@
-export const Shop = ({products}) => {
+export const Shop = ({products, genres}) => {
 
-  products.map(product => {
+  const genreList = genres.map(genre => {
     return (
-      <>
-        {product}
-      </>
+      <li key={genre}>
+        <p>{genre}</p>
+      </li>
+    )
+  })
+  const productList = products.map(product => {
+    return (
+      <div className="product-card" key={product.id}>
+        <img src={product.img} alt={"album cover of " + product.title} />
+        <p>{product.title}</p>
+        <p>{product.lowest_price}</p>
+      </div>
     )
   })
   return (
@@ -16,10 +25,14 @@ export const Shop = ({products}) => {
         <p>Shop</p>
       </div>
       <div className="categories">
+        <ul>
+        <li>All</li>
+        {genreList}
+        </ul>
 
       </div>
       <div className="products">
-
+        {productList}
       </div>
     </div>
   )

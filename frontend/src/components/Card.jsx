@@ -11,11 +11,11 @@ export const Card = ({title, img, artists, year, tracklist, num_for_sale, lowest
         <div className="tracklist">
           {tracklist.map(track => {
             return (
-              <div className="track">
+              <li className="track">
                 <p>{track.position}</p>
                 <p>{track.title}</p>
                 <p>{track.duration}</p>
-              </div>
+              </li>
             )
           })}
         </div>
