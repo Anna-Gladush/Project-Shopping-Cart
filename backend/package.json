@@ -7,8 +7,8 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "start": "npx tsc && node app",
-    "dev": "npx tsc && nodemon app",
+    "start": "npx tsc && node dist/app",
+    "dev": "npx tsc && nodemon dist/app",
     "build": "npx tsc"
   },
   "dependencies": {
