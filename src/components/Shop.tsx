@@ -1,22 +1,22 @@
 // import { NavBar } from "./NavBar"
 // import { Footer } from "./Footer"
-import { Card } from "./Card"
-import { useState } from "react"
+// import { Card } from "./Card"
+// import { useState } from "react"
 
 export const Shop = ({products, genres}) => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
 
   const productList = products.map(product => {
     const img_src = product.images[0].resource_url;
     return (
-      <button key={product.id} onClick={() => setSelectedProduct(product)}>
-        <div className="product-card">
+      <a key={product.id} className="product-card" /* onClick={() => setSelectedProduct(product)}*/>
+        <div>
           <img src={img_src} alt={"album cover of " + product.title} width={50}/>
           <p>{product.artists[0].name}</p>
           <p>{product.title}</p>
           <p>${product.lowest_price}</p>
         </div>
-      </button>
+      </a>
     )
   })
   return (
@@ -34,7 +34,7 @@ export const Shop = ({products, genres}) => {
           {genres}
         </div>
         <div className="products">
-          {selectedProduct === null ? productList : (<Card product={selectedProduct} setSelectedProduct={setSelectedProduct}/>)}
+          {productList}
         </div>
       </section>
       {/* <Footer genres={genres} /> */}

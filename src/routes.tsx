@@ -1,20 +1,24 @@
-import App from "./App";
-// import Profile from "./components/Profile";
+// import App from "./App";
+// import { Homepage } from "./components/Home";
 // import ErrorPage from "./components/ErrorElement";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    // element: <Homepage />,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "shop/:page",
-    // element: ,
+    path: "shop/",
+    // element: <Shop />,
+  },
+  {
+    path: "shop/:id",
+    // element: <Card />,
   },
   {
     path: "cart",
-    // element: ,
+    // element: <Cart >,
   }
 ];
 
