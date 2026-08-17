@@ -1,11 +1,11 @@
 export const Footer = ({genres}) => {
-  const genreList = genres.map(genre => {
-    return (
-      <a key={genre}>{genre}</a>
-    )
-  })
+
   return (
     <footer>
+      <div className="news-letter">
+        <h2>Sign up to our newsletter & get 20% Off</h2>
+        <button className="sign-up-newsletter">Sign up for free</button>
+      </div>
       <div className="">
         <div className="footer-shop-info">
           <p>Signal to Noise</p>
@@ -17,12 +17,12 @@ export const Footer = ({genres}) => {
           <a>About</a>
         </div>
         <div className="footer-categories">
-          {genreList}
+          {genres}
         </div>
         <div className="footer-socials">
-          <a><img src="../assets/images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" /></a>
-          <a><img src="../assets/images/tiktok-com-logo.png" alt="tiktok logo"  className="img-social" /></a>
-          <a><img src="../assets/images/youtube-com-logo.png" alt="youtube logo"  className="img-social" /></a>
+          <a><img src="./images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" /></a>
+          <a><img src="./images/tiktok-com-logo.png" alt="tiktok logo"  className="img-social" /></a>
+          <a><img src="./images/youtube-com-logo.png" alt="youtube logo"  className="img-social" /></a>
         </div>
       </div>
       <div>
