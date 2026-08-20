@@ -1,32 +1,34 @@
 import { NavBar } from "./NavBar"
 import { Footer } from "./Footer"
+import { useTranslation } from 'react-i18next';
+
 export const About = ({genres}) => {
+  const { t } = useTranslation("about")
+
   return (
     <>
     <NavBar />
     <section className="about">
-      <h2>About Us</h2>
+      <h2>{t("about")}</h2>
       <img src="./images/natalia-bazyl-FqD9dZn9oeU-unsplash.jpg" width={1000}/>
-      <div>
+      <div className="pros">
         <div>
-          <p>Shop online</p>
-          <p>Explore a vast collection of premium vinyl records from the comfort of your home.</p>
+          <p>{t("pros.online.bold")}</p>
+          <p>{t("pros.online.text")}</p>
         </div>        
         <div>
-          <p>Free shipping</p>
-          <p>Enjoy the convenience of free shipping on all orders, nationwide.</p>
+          <p>{t("pros.shipping.bold")}</p>
+          <p>{t("pros.shipping.text")}</p>
         </div>
         <div>
-          <p>Return policy</p>
-          <p>Your satisfaction is our priority. Return any product you are not satisfied with.</p>
+          <p>{t("pros.return.bold")}</p>
+          <p>{t("pros.return.text")}</p>
         </div>
         <div>
-          <p>Payment methods</p>
-          <p>Choose from a variety of secure payment methods to complete your transactions.</p>
+          <p>{t("pros.payment.bold")}</p>
+          <p>{t("pros.payment.text")}</p>
         </div>
-        <p>
-
-        </p>
+        <p>{t("description")}</p>
       </div>
     </section>
     <Footer genres={genres}/>

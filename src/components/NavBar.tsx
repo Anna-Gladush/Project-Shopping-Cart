@@ -1,5 +1,7 @@
-export const NavBar = () => {
+import { useTranslation } from "react-i18next";
 
+export const NavBar = () => {
+  const { t } = useTranslation("home")
   return (
     <nav>
       <div className="logo">
@@ -7,10 +9,10 @@ export const NavBar = () => {
         <h1>Signal to Noise</h1>
       </div>
       <div className="links">
-        <a>About</a>
-        <a>Shop</a>
-        <a>Search</a>
-        <a>Cart</a>
+        <a>{t("links.about")}</a>
+        <a>{t("links.shop")}</a>
+        <a>{t("links.search")}</a>
+        <a>{t("links.cart")}</a>
       </div>
     </nav>
   )

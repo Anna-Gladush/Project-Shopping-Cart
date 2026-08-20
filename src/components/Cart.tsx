@@ -1,14 +1,17 @@
 import { NavBar } from "./NavBar"
 import { Footer } from "./Footer"
+import { useTranslation } from "react-i18next";
 
 export const Cart = ({cart, genres}) => {
+    const { t } = useTranslation("home")
+  
   const cartList = cart.map(item => {
     return (
       <div className="cart-item">
         <img src={item.img} alt={"album cover of " + item.title } />
         <div>
           <p>{item.title}</p>
-          <button>Remove</button>
+          <button>{t("cart.remove")}</button>
         </div>
         <div>
           <p>${item.price}</p>
@@ -31,13 +34,14 @@ export const Cart = ({cart, genres}) => {
     <>
       <NavBar />
       <section className="cart">
-        <h2>Your cart</h2>
+        <h2>{t("cart.h2")}</h2>
+        <p>{t("cart.disclaimer")}</p>
         <div className="cart-product-titles">
-          <p>Product</p>
+          <p>{t("cart.header.product")}</p>
           <div>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Total</p>
+            <p>{t("cart.header.price")}</p>
+            <p>{t("cart.header.quantity")}</p>
+            <p>{t("cart.header.total")}</p>
           </div>
         </div>
         <div className="cart-products">
@@ -45,19 +49,19 @@ export const Cart = ({cart, genres}) => {
         </div>
         <div>
           <form>
-            <p>Enter your gift code: </p>
+            <p>{t("cart.gift")} </p>
             <input type="text" name="gift" id="gift" />
-            <button onClick={(e) => giftCode(e)}>Apply</button>
+            <button onClick={(e) => giftCode(e)}>{t("cart.apply")}</button>
           </form>
           <div>
             <div>
-              <p>Subtotal</p>
+              <p>{t("cart.subtotal")}</p>
               <p>${total}</p>
             </div>
-            <p>Tax included and shipping calculated at checkout</p>
+            <p>{t("cart.tax")}</p>
             <div>
-              <button>Continue shopping</button>
-              <button>Checkout</button>
+              <button>{t("cart.continue")}</button>
+              <button>{t("cart.checkout")}</button>
             </div>
           </div>
         </div>

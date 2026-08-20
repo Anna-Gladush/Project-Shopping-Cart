@@ -1,20 +1,24 @@
+import { useTranslation } from "react-i18next"
+
 export const Footer = ({genres}) => {
+  const { t } = useTranslation("home")
 
   return (
     <footer>
       <div className="news-letter">
-        <h2>Sign up to our newsletter & get 20% Off</h2>
-        <button className="sign-up-newsletter">Sign up for free</button>
+        <h2>{t("footer.newsletter.h2")}</h2>
+        <p>{t("footer.newsletter.p")}</p>
+        <button className="sign-up-newsletter">{t("footer.newsletter.button")}</button>
       </div>
       <div className="">
         <div className="footer-shop-info">
           <p>Signal to Noise</p>
-          <p>Your trusted music companion</p>
+          <p>{t("footer.shopInfo.description")}</p>
         </div>
         <div className="footer-navigation">
-          <a>Home</a>
-          <a>Shop</a>
-          <a>About</a>
+          <a>{t("links.home")}</a>
+          <a>{t("links.shop")}</a>
+          <a>{t("links.about")}</a>
         </div>
         <div className="footer-categories">
           {genres}

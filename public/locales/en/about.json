@@ -1,0 +1,22 @@
+{
+  "about": "About us",
+  "pros": {
+    "online": {
+      "bold": "Shop online",
+      "text": "Explore a vast collection of premium vinyl records from the comfort of your home."
+    },
+    "shipping": {
+      "bold": "Free shipping",
+      "text": "Enjoy the convenience of free shipping on all orders, nationwide."
+    },
+    "return": {
+      "bold": "Return policy",
+      "text": "Your satisfaction is our priority. Return any product you are not satisfied with."
+    },
+    "payment": {
+      "bold": "Payment methods",
+      "text": "Choose from a variety of secure payment methods to complete your transactions."
+    }
+  },
+  "description": "Welcome to SignalToNoise! You'll find all of your favorite titles right here. We bring the top entertainment choices at great prices right to your door, and hand-pick all our selections to offer you the best there is in music entertainment."
+}

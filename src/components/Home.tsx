@@ -1,22 +1,24 @@
 import { NavBar } from "./NavBar"
 import { Footer } from "./Footer"
+import { useTranslation } from "react-i18next";
 
 export const Homepage = ({genres}) => {
+  const { t } = useTranslation("home")
 
   return (
     <>
       <NavBar />
       <section className="homepage">
         <div className="hero-section">
-          <h2>Welcome to Signal to Noise!</h2>
-          <p>Signal to Noise is your one-stop destination for vinyl records!</p>
-          <p>We want you to have a lot of fun listening to analogue sound and live music!</p>
+          <h2>{t("homepage.welcome")}</h2>
+          <p>{t("homepage.p1")}</p>
+          <p>{t("homepage.p2")}</p>
         </div>
         <div className="best-seller">
           4 items...
         </div>
         <div className="visit-shop">
-          <a href="">Visit Shop <img src="" alt="" className="img-visit-shop"/></a>
+          <a href="">{t("homepage.visit")}<img src="" alt="" className="img-visit-shop"/></a>
         </div>
       </section>
       <Footer genres={genres} />

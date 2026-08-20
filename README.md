@@ -8,6 +8,7 @@ A simple mock shopping cart.
   <li><code>TypeScript</code></li>
   <li><code>React</code></li>
   <li><code>React Testing Library</code></li>
+  <li><code>i18next</code></li>
 </ul>
 
 ## What I Learned

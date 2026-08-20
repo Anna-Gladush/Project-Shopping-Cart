@@ -2,8 +2,15 @@
 // import { Footer } from "./Footer"
 // import { Card } from "./Card"
 // import { useState } from "react"
+import type { JSX } from "react/jsx-runtime";
+import type { discogs } from "../data";
 
-export const Shop = ({products, genres}) => {
+type ShopProps = {
+  products: discogs[],
+  genres: JSX.Element[],
+}
+
+export const Shop = ({products, genres}: ShopProps): JSX.Element => {
   // const [selectedProduct, setSelectedProduct] = useState(null);
 
   const productList = products.map(product => {

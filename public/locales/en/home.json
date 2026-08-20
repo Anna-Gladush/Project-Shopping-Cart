@@ -1,0 +1,43 @@
+{
+  "changeLang": "Change Language",
+  "homepage": {
+    "welcome": "Welcome to SignalToNoise!",
+    "p1": "SignalToNoise is your one-stop destination for vinyl records!",
+    "p2": "We want you to have a lot of fun listening to analogue sound and live music!",
+    "visit": "Visit Shop"
+  },
+  "footer": {
+    "newsletter": {
+      "h2": "Sign up to our newsletter & get 20% Off",
+      "p": "Exclusives, pre-orders, events, back in stock - don’t miss out, sign-up to receive our emails.",
+      "button": "Sign up for free"
+    },
+    "shopInfo": {
+      "description": "Your trusted music companion"
+    }
+  },
+  "links": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "search": "Search",
+    "cart": "Cart"
+  },
+  "cart": {
+    "remove": "Remove",
+    "h2":"Your cart",
+    "disclaimer": "SignalToNoise is not responsible for typographical or photographical errors.",
+    "header": {
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total"
+    },
+    "gift": "Enter your gift code:",
+    "apply": "Apply",
+    "subtotal": "Subtotal: ",
+    "tax": "Tax included and shipping calculated at checkout",
+    "continue": "Continue shopping",
+    "checkout": "Checkout"
+  }
+}
