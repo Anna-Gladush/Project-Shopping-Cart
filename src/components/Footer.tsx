@@ -1,6 +1,9 @@
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
+import { Genres } from "./Genres";
 
-export const Footer = ({genres}) => {
+import type { JSX } from "react/jsx-runtime";
+
+export const Footer = (): JSX.Element => {
   const { t } = useTranslation("home")
 
   return (
@@ -21,7 +24,7 @@ export const Footer = ({genres}) => {
           <a>{t("links.about")}</a>
         </div>
         <div className="footer-categories">
-          {genres}
+          <Genres />
         </div>
         <div className="footer-socials">
           <a><img src="./images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" /></a>

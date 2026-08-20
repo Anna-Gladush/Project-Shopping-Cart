@@ -17,6 +17,14 @@ type videos = {
   embed: boolean,  
 }
 
+export type tracklist =    {
+  position: string,
+  type_: string,
+  title: string,
+  extraartists?: artists[],
+  duration: string,
+}
+
 export type discogs = {
   id: number,
   main_release: number,
@@ -40,14 +48,7 @@ export type discogs = {
   genres: string[],
   styles: string[],
   year: number,
-  tracklist:
-    {
-      position: string,
-      type_: string,
-      title: string,
-      extraartists?: artists[],
-      duration: string,
-    }[],
+  tracklist: tracklist[],
   artists: artists[],
   title: string,
   data_quality: string,

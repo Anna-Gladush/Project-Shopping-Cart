@@ -1,8 +1,10 @@
-import { NavBar } from "./NavBar"
-import { Footer } from "./Footer"
+import { NavBar } from "./NavBar";
+import { Footer } from "./Footer";
 import { useTranslation } from "react-i18next";
 
-export const Homepage = ({genres}) => {
+import type { JSX } from "react/jsx-runtime";
+
+export const Homepage = (): JSX.Element => {
   const { t } = useTranslation("home")
 
   return (
@@ -21,7 +23,7 @@ export const Homepage = ({genres}) => {
           <a href="">{t("homepage.visit")}<img src="" alt="" className="img-visit-shop"/></a>
         </div>
       </section>
-      <Footer genres={genres} />
+      <Footer />
     </>
   )
 }

@@ -1,11 +1,21 @@
-import { NavBar } from "./NavBar"
-import { Footer } from "./Footer"
+import { NavBar } from "./NavBar";
+import { Footer } from "./Footer";
 import { useTranslation } from "react-i18next";
 
-export const Cart = ({cart, genres}) => {
+import type { JSX } from "react/jsx-runtime";
+import type { MouseEvent } from "react";
+
+type cart = {
+  img: string,
+  title: string,
+  price: number,
+  quantity: number,
+}
+
+export const Cart = ({cart}): JSX.Element => {
     const { t } = useTranslation("home")
   
-  const cartList = cart.map(item => {
+  const cartList = cart.map((item: cart) => {
     return (
       <div className="cart-item">
         <img src={item.img} alt={"album cover of " + item.title } />
@@ -22,11 +32,11 @@ export const Cart = ({cart, genres}) => {
     )
   })
 
-  const total = cart.reduce((prev, curr) => {
+  const total = cart.reduce((prev: number, curr: cart): number => {
     return prev + (curr.price * curr.quantity);
   }, 0);
 
-  const giftCode = (e) => {
+  const giftCode = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void => {
     e.preventDefault();
   }
 
@@ -66,7 +76,7 @@ export const Cart = ({cart, genres}) => {
           </div>
         </div>
       </section>
-      <Footer genres={genres} /> 
+      <Footer /> 
     </>
   )
 }

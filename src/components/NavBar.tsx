@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
+import type { JSX } from "react/jsx-runtime";
 
-export const NavBar = () => {
+export const NavBar = (): JSX.Element => {
   const { t } = useTranslation("home")
   return (
     <nav>

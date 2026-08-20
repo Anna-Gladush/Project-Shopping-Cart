@@ -1,3 +1,4 @@
+import { Genres } from "./Genres";
 // import { NavBar } from "./NavBar"
 // import { Footer } from "./Footer"
 // import { Card } from "./Card"
@@ -7,13 +8,12 @@ import type { discogs } from "../data";
 
 type ShopProps = {
   products: discogs[],
-  genres: JSX.Element[],
 }
 
-export const Shop = ({products, genres}: ShopProps): JSX.Element => {
+export const Shop = ({products}: ShopProps): JSX.Element => {
   // const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const productList = products.map(product => {
+  const productList = products.map((product: discogs): JSX.Element => {
     const img_src = product.images[0].resource_url;
     return (
       <a key={product.id} className="product-card" /* onClick={() => setSelectedProduct(product)}*/>
@@ -38,7 +38,7 @@ export const Shop = ({products, genres}: ShopProps): JSX.Element => {
         </div>
         <div className="categories">
           <a>All</a>
-          {genres}
+          <Genres />
         </div>
         <div className="products">
           {productList}

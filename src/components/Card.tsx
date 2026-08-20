@@ -1,11 +1,16 @@
 import { useTranslation } from "react-i18next";
+import type { JSX } from "react/jsx-runtime";
+import type { tracklist } from "../data";
 
-export const Card = ({product, setSelectedProduct}) => {
+// {product, setSelectedProduct}
+// const returnShopping = () => {
+//   setSelectedProduct(null)
+// }
+
+
+export const Card = ({product}): JSX.Element => {
   const { t } = useTranslation("card")
   
-  const returnShopping = () => {
-    setSelectedProduct(null)
-  }
   return (
     <div className="card">
       <img src={product.images[0].resource_url} alt={"album cover of " + product.title} />
@@ -20,7 +25,7 @@ export const Card = ({product, setSelectedProduct}) => {
         })}
         <p>{product.year}</p>
         <div className="tracklist">
-          {product.tracklist.map(track => {
+          {product.tracklist.map((track: tracklist) => {
             return (
               <li className="track" key={track.title}>
                 <p>{track.position}</p>
@@ -38,7 +43,7 @@ export const Card = ({product, setSelectedProduct}) => {
         <button className="decrement">-</button>
       </div>
       <button className="add-to-cart">{t("add")}</button>
-      <button className="go-back" onClick={returnShopping}>{t("back")}</button>
+      <button className="go-back">{t("back")}</button>
     </div>
   )
 }

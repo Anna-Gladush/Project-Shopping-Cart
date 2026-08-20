@@ -1,8 +1,10 @@
-import { NavBar } from "./NavBar"
-import { Footer } from "./Footer"
+import { NavBar } from "./NavBar";
+import { Footer } from "./Footer";
 import { useTranslation } from 'react-i18next';
 
-export const About = ({genres}) => {
+import type { JSX } from "react/jsx-dev-runtime";
+
+export const About = (): JSX.Element => {
   const { t } = useTranslation("about")
 
   return (
@@ -31,7 +33,7 @@ export const About = ({genres}) => {
         <p>{t("description")}</p>
       </div>
     </section>
-    <Footer genres={genres}/>
+    <Footer />
     </>
   )
 }
