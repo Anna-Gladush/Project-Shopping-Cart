@@ -1,9 +1,8 @@
-import { NavBar } from "./NavBar";
-import { Footer } from "./Footer";
 import { useTranslation } from "react-i18next";
 
 import type { JSX } from "react/jsx-runtime";
-import type { MouseEvent } from "react";
+import { useContext, type MouseEvent } from "react";
+import { CartContext } from "../context/CartContext";
 
 type cart = {
   img: string,
@@ -12,8 +11,9 @@ type cart = {
   quantity: number,
 }
 
-export const Cart = ({cart}): JSX.Element => {
-    const { t } = useTranslation("home")
+export const Cart = (): JSX.Element => {
+  const { cart } = useContext(CartContext)
+  const { t } = useTranslation("home")
   
   const cartList = cart.map((item: cart) => {
     return (
@@ -42,7 +42,6 @@ export const Cart = ({cart}): JSX.Element => {
 
   return (
     <>
-      <NavBar />
       <section className="cart">
         <h2>{t("cart.h2")}</h2>
         <p>{t("cart.disclaimer")}</p>
@@ -55,7 +54,7 @@ export const Cart = ({cart}): JSX.Element => {
           </div>
         </div>
         <div className="cart-products">
-          {cartList}
+          {cart && cartList}
         </div>
         <div>
           <form>
@@ -66,7 +65,7 @@ export const Cart = ({cart}): JSX.Element => {
           <div>
             <div>
               <p>{t("cart.subtotal")}</p>
-              <p>${total}</p>
+              <p>${cart ? total : 0}</p>
             </div>
             <p>{t("cart.tax")}</p>
             <div>
@@ -76,7 +75,6 @@ export const Cart = ({cart}): JSX.Element => {
           </div>
         </div>
       </section>
-      <Footer /> 
     </>
   )
 }

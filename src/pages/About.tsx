@@ -1,5 +1,3 @@
-import { NavBar } from "./NavBar";
-import { Footer } from "./Footer";
 import { useTranslation } from 'react-i18next';
 
 import type { JSX } from "react/jsx-dev-runtime";
@@ -9,7 +7,6 @@ export const About = (): JSX.Element => {
 
   return (
     <>
-    <NavBar />
     <section className="about">
       <h2>{t("about")}</h2>
       <img src="./images/natalia-bazyl-FqD9dZn9oeU-unsplash.jpg" width={1000}/>
@@ -33,7 +30,6 @@ export const About = (): JSX.Element => {
         <p>{t("description")}</p>
       </div>
     </section>
-    <Footer />
     </>
   )
 }

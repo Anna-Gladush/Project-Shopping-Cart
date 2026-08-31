@@ -1,12 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { JSX } from "react/jsx-runtime";
-import type { tracklist } from "../data";
-
-// {product, setSelectedProduct}
-// const returnShopping = () => {
-//   setSelectedProduct(null)
-// }
-
+import type { tracklist } from "../data/data";
 
 export const Card = ({product}): JSX.Element => {
   const { t } = useTranslation("card")

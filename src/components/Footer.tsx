@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Genres } from "./Genres";
+import { Link } from "react-router";
 
 import type { JSX } from "react/jsx-runtime";
 
@@ -19,9 +20,9 @@ export const Footer = (): JSX.Element => {
           <p>{t("footer.shopInfo.description")}</p>
         </div>
         <div className="footer-navigation">
-          <a>{t("links.home")}</a>
-          <a>{t("links.shop")}</a>
-          <a>{t("links.about")}</a>
+          <Link to="/">{t("links.home")}</Link>
+          <Link to="/shop">{t("links.shop")}</Link>
+          <Link to="/about">{t("links.about")}</Link>
         </div>
         <div className="footer-categories">
           <Genres />

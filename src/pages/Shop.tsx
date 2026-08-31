@@ -1,12 +1,11 @@
-import { Genres } from "./Genres";
-// import { NavBar } from "./NavBar"
-// import { Footer } from "./Footer"
+import { Genres } from "../components/Genres";
 // import { Card } from "./Card"
 // import { useState } from "react"
 import type { JSX } from "react/jsx-runtime";
-import type { discogs } from "../data";
+import type { discogs } from "../data/data";
+import { Link } from "react-router";
 
-type ShopProps = {
+export type ShopProps = {
   products: discogs[],
 }
 
@@ -22,19 +21,22 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
           <p>{product.artists[0].name}</p>
           <p>{product.title}</p>
           <p>${product.lowest_price}</p>
+          <div>
+            <button>View Details</button>
+            <button>Add to Cart</button>
+          </div>
         </div>
       </a>
     )
   })
   return (
     <>
-      {/* <NavBar /> */}
       <section className="shop">
         <h2>Shop</h2>
         <div className="breadcrumbs">
-          <a>Home</a>
+          <Link to="/">Home</Link>
           <p>{">"}</p>
-          <a>Shop</a>
+          <Link to="/shop">Shop</Link>
         </div>
         <div className="categories">
           <a>All</a>
@@ -44,7 +46,6 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
           {productList}
         </div>
       </section>
-      {/* <Footer genres={genres} /> */}
     </>
   )
 }

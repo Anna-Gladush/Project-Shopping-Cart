@@ -17602,3 +17602,7 @@ export const data: discogs[] = [
     data_quality: "Correct",
   },
 ];
+
+export function getProducts() {
+  return data;
+}

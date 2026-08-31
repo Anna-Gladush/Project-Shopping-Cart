@@ -7,9 +7,16 @@ A simple mock shopping cart.
 <ul>
   <li><code>TypeScript</code></li>
   <li><code>React</code></li>
+  <li><code>React Router</code></li>
   <li><code>React Testing Library</code></li>
   <li><code>i18next</code></li>
 </ul>
+
+## How to improve?
+
+- react routing;
+- css styling;
+- add fetching album info once you open card;
 
 ## What I Learned
 

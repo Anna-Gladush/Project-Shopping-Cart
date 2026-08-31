@@ -4,8 +4,26 @@
   padding: 0;
 }
 
-a:hover {
+a:hover,
+button {
   cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo img {
+  height: 50px;
+  width: auto;
 }
 
 section.shop .products {
@@ -15,4 +33,7 @@ section.shop .products {
 
 section.shop .products div {
   width: 300px;
+}
+.img-social {
+  width: 50px;
 }
