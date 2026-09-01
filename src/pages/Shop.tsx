@@ -1,7 +1,7 @@
 import { Genres } from "../components/Genres";
 import type { JSX } from "react/jsx-runtime";
 import type { discogs } from "../data/data";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../context/CartContext";
 
@@ -10,14 +10,16 @@ export type ShopProps = {
 }
 
 export const Shop = ({products}: ShopProps): JSX.Element => {
-  // const [searchParams, setSearchParams] = useSearchParams();
   const { addToCart } = useCart();
-
+  const [ searchParams ] = useSearchParams();
+  const category = searchParams.get('category') || 'all';
   const { t } = useTranslation("home");
 
-  // const selectedCategory = searchParams.get('category') || 'all'
-
-  const productList = products.map((product: discogs): JSX.Element => {
+  function getProductByCategory(category) {
+    if (category === 'all') return products;
+    return products.filter(product => product.genres.includes(category))
+  }
+  const productList = getProductByCategory(category).map((product: discogs): JSX.Element => {
     const img_src = product.images[0].resource_url;
     return (
       <div key={product.id} className="product-card">
@@ -44,7 +46,7 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
           <Link to="/products">{t("links.shop")}</Link>
         </div>
         <div className="categories">
-          <a>{t("genres.all")}</a>
+          <Link to="/products">{t("genres.all")}</Link>
           <Genres />
         </div>
         <div className="products">

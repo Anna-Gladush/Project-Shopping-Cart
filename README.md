@@ -16,9 +16,9 @@ A simple vinyl shop.
 
 ## How to improve?
 
-- react routing;
+- check for each route to be correct;
+- check UX logic;
 - css styling;
-- add fetching album info once you open card;
 
 ## What I Learned
 

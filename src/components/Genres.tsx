@@ -8,7 +8,7 @@ export const Genres = (): JSX.Element => {
 
   const genreList = genres.map(genre => {
     return (
-      <Link to={`/shop/${genre}`} key={genre}>{genre}</Link>
+      <Link to={`/products?category=${genre}`} key={genre}>{genre}</Link>
     )
   })
 

@@ -1,7 +1,4 @@
-// import { Discojs } from 'discojs'
 import type { JSX } from 'react/jsx-runtime';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from 'react';
 import { Routes, Route } from 'react-router';
 import { Homepage } from './pages/Home';
 import { About } from './pages/About';
@@ -11,7 +8,6 @@ import { Cart } from './pages/Cart';
 import { Shop } from './pages/Shop';
 import { getProducts } from './data/data';
 import ErrorPage from './pages/ErrorPage';
-// import { CartContext } from './context/CartContext';
 import { Card } from './components/Card';
 import CartProvider from './context/CartContext';
 
