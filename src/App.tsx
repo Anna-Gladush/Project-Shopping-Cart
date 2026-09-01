@@ -11,63 +11,46 @@ import { Cart } from './pages/Cart';
 import { Shop } from './pages/Shop';
 import { getProducts } from './data/data';
 import ErrorPage from './pages/ErrorPage';
-import { CartContext } from './context/CartContext';
+// import { CartContext } from './context/CartContext';
 import { Card } from './components/Card';
-// import useDiscoData from './customHooks/useDiscoData';
+import CartProvider from './context/CartContext';
 
 function App(): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const products = getProducts()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const [cart, setCart ] = useState("")
-  const cart = [{
-    img: "",
-    title: "",
-    price: 0,
-    quantity: 0
-  }]
-
-  const addToCart = (product) => {
-    cart.push(product)
-  }
-
-  const removeFromCart = (id:number) => {
-    console.log(id)
-  }
 
   return (
     <>
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-    <NavBar/>
-      <Routes>
-        <Route 
-          path='/'
-          element={<Homepage products={products} />}
-        />
-        <Route 
-          path='/about'
-          element={<About />}
-        />
-        <Route 
-          path='/products'
-          element={<Shop products={products} />}
-        />
-        <Route 
-          path='/products/:id'
-          element={<Card />}
-        />
-        <Route 
-          path='/checkout'
-          element={<Cart />}
-        />
-        {/* Should be the last one */}
-        <Route 
-          path='*'
-          element={<ErrorPage />}
-        />
-      </Routes>
-      </CartContext.Provider>
-    <Footer />
+    <CartProvider>
+      <NavBar/>
+        <Routes>
+          <Route 
+            path='/'
+            element={<Homepage products={products} />}
+          />
+          <Route 
+            path='/about'
+            element={<About />}
+          />
+          <Route 
+            path='/products'
+            element={<Shop products={products} />}
+          />
+          <Route 
+            path='/products/:id'
+            element={<Card />}
+          />
+          <Route 
+            path='/checkout'
+            element={<Cart />}
+          />
+          {/* Should be the last one */}
+          <Route 
+            path='*'
+            element={<ErrorPage />}
+          />
+        </Routes>
+      <Footer />
+    </CartProvider>
     </>
   )
 }

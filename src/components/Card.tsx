@@ -3,12 +3,15 @@ import type { JSX } from "react/jsx-runtime";
 import { getProductByID, type tracklist } from "../data/data";
 import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useCart } from "../context/CartContext";
 
 export const Card = (): JSX.Element => {
-  const { t } = useTranslation("card")
+  const { addToCart, cartItems } = useCart();
+  const { t } = useTranslation("card");
   const { id } = useParams();
   const navigate = useNavigate();
-  const [product, setProduct] = useState(null)
+  const [ product, setProduct ] = useState(null);
+
 
   useEffect(() => {
     const foundProduct = getProductByID(id)
@@ -23,6 +26,9 @@ export const Card = (): JSX.Element => {
 
   if (!product) return <h2>Loading...</h2>
 
+  const productInCart = cartItems.find((item) => item.id === product.id);
+  const productQuantityLabel = productInCart ? productInCart.quantity : "";
+  
   return (
     <div>
       <div className="breadcrumbs">
@@ -59,11 +65,11 @@ export const Card = (): JSX.Element => {
 
       </div>
       <div className="quantity">
-        <input type="number" max={product.num_for_sale} id={"quantity-of-" + product.title} name={"quantity-of-" + product.title}/>
-        <button className="increment">+</button>
+        <p>{productQuantityLabel}</p>
+        <button className="increment" onClick={() => addToCart(product.id)}>+</button>
         <button className="decrement">-</button>
       </div>
-      <button className="add-to-cart">{t("add")}</button>
+      <button className="add-to-cart" onClick={() => addToCart(product.id)}>{t("add")}</button>
       <button className="go-back">{t("back")}</button>
     </div>
     </div>

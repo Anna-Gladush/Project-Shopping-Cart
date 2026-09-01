@@ -1,45 +1,40 @@
 import { useTranslation } from "react-i18next";
-
+import { useCart } from "../context/CartContext";
 import type { JSX } from "react/jsx-runtime";
-import { useContext, type MouseEvent } from "react";
-import { CartContext } from "../context/CartContext";
-
-type cart = {
-  img: string,
-  title: string,
-  price: number,
-  quantity: number,
-}
+import { Link } from "react-router";
+import { useState } from "react";
 
 export const Cart = (): JSX.Element => {
-  const { cart } = useContext(CartContext)
-  const { t } = useTranslation("home")
-  
-  const cartList = cart.map((item: cart) => {
+  const [giftInput, setGiftInput] = useState({input: "", applied: false})
+  const { getCartItemsWithProducts, updateQuantity, removeFromCart, getCartTotal, clearCart } = useCart();
+  const { t } = useTranslation("home");
+  const total = getCartTotal();
+  const cartItems = getCartItemsWithProducts();
+  const cartList = cartItems.map((item) => {
     return (
-      <div className="cart-item">
-        <img src={item.img} alt={"album cover of " + item.title } />
+      <div className="cart-item" key={item.product.title}>
+        <img src={item.product.images[0].resource_url} alt={"album cover of " + item.product.title } />
         <div>
-          <p>{item.title}</p>
-          <button>{t("cart.remove")}</button>
+          <p>{item.product.title}</p>
         </div>
         <div>
-          <p>${item.price}</p>
-          <input type="number" name={"quantity-of-" + item.title} id={"quantity-of-" + item.title} defaultValue={item.quantity}/>
-          <p>${item.price * item.quantity}</p>
+          <p>${item.product.lowest_price}</p>
+          <div className="quantity-controls">
+            <button className="increment" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+            <p>{item.quantity}</p>
+            <button className="decrement" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+          </div>
+          <p>${Math.round(item.product.lowest_price * item.quantity * 100)/100}</p>
         </div>
+        <button onClick={() => removeFromCart(item.id)}>Remove</button>
       </div>
     )
   })
 
-  const total = cart.reduce((prev: number, curr: cart): number => {
-    return prev + (curr.price * curr.quantity);
-  }, 0);
-
-  const giftCode = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void => {
-    e.preventDefault();
+  const placeOrder = () => {
+    alert(t("order.place"));
+    clearCart();
   }
-
   return (
     <>
       <section className="cart">
@@ -54,23 +49,27 @@ export const Cart = (): JSX.Element => {
           </div>
         </div>
         <div className="cart-products">
-          {cart && cartList}
+          {cartList}
         </div>
         <div>
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <p>{t("cart.gift")} </p>
-            <input type="text" name="gift" id="gift" />
-            <button onClick={(e) => giftCode(e)}>{t("cart.apply")}</button>
+            <input type="text" name="gift" id="gift" value={giftInput.input} onChange={(e) => setGiftInput({...giftInput, input: e.target.value})}/>
+            <button onClick={() => {
+              if (giftInput.input === "discount") {
+              setGiftInput({...giftInput, applied: true})}}
+              }>{t("cart.apply")}</button>
+            <p>{giftInput.applied ? "20% off discount code has been activated" : ""}</p>
           </form>
           <div>
             <div>
               <p>{t("cart.subtotal")}</p>
-              <p>${cart ? total : 0}</p>
+              <p>${giftInput.applied ? (total - total * 0.2) : total}</p>
             </div>
             <p>{t("cart.tax")}</p>
             <div>
-              <button>{t("cart.continue")}</button>
-              <button>{t("cart.checkout")}</button>
+              <Link to="/products">{t("cart.continue")}</Link>
+              <button onClick={placeOrder}>{t("cart.checkout")}</button>
             </div>
           </div>
         </div>

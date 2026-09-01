@@ -28,9 +28,9 @@ export const Footer = (): JSX.Element => {
           <Genres />
         </div>
         <div className="footer-socials">
-          <a><img src="./images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" /></a>
-          <a><img src="./images/tiktok-com-logo.png" alt="tiktok logo"  className="img-social" /></a>
-          <a><img src="./images/youtube-com-logo.png" alt="youtube logo"  className="img-social" /></a>
+          <img src="/images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" />
+          <img src="/images/tiktok-com-logo.png" alt="tiktok logo"  className="img-social" />
+          <img src="/images/youtube-com-logo.png" alt="youtube logo"  className="img-social" />
         </div>
       </div>
       <div>

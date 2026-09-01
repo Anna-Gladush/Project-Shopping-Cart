@@ -1,11 +1,9 @@
 import { Genres } from "../components/Genres";
-// import { Card } from "./Card"
-// import { useState } from "react"
 import type { JSX } from "react/jsx-runtime";
 import type { discogs } from "../data/data";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Link, useSearchParams } from "react-router";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import { useCart } from "../context/CartContext";
 
 export type ShopProps = {
   products: discogs[],
@@ -13,6 +11,7 @@ export type ShopProps = {
 
 export const Shop = ({products}: ShopProps): JSX.Element => {
   // const [searchParams, setSearchParams] = useSearchParams();
+  const { addToCart } = useCart();
 
   const { t } = useTranslation("home");
 
@@ -21,7 +20,7 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
   const productList = products.map((product: discogs): JSX.Element => {
     const img_src = product.images[0].resource_url;
     return (
-      <div key={product.id} className="product-card" /* onClick={() => setSelectedProduct(product)}*/>
+      <div key={product.id} className="product-card">
         <div>
           <img src={img_src} alt={"album cover of " + product.title} width={50}/>
           <p>{product.artists[0].name}</p>
@@ -29,7 +28,7 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
           <p>${product.lowest_price}</p>
           <div>
             <Link to={`/products/${product.id}`}>View Details</Link>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCart(product.id)}>Add to Cart</button>
           </div>
         </div>
       </div>

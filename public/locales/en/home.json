@@ -49,5 +49,8 @@
     "jazz": "Jazz",
     "pop": "Pop",
     "electronic": "Electronic"
+  },
+  "order": {
+    "place": "Successful Order!"
   }
 }
