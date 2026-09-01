@@ -10,15 +10,17 @@ export const NavBar = (): JSX.Element => {
     i18n.changeLanguage(newLanguage);
   }
   return (
-    <nav>
+    <nav className="navbar">
       <div className="logo">
-        <img src="./vinyl.svg" alt="vinyl shop logo" />
-        <h1>Signal to Noise</h1>
+        <Link to="/" className="logo-link">
+          <img src="./vinyl.svg" alt="vinyl shop logo" />
+          <h1>Signal to Noise</h1>
+        </Link>
       </div>
       <div className="links">
         <Link to="/">{t("links.home")}</Link>
         <Link to="/about">{t("links.about")}</Link>
-        <Link to="/shop">{t("links.shop")}</Link>
+        <Link to="/products">{t("links.shop")}</Link>
         <Link to="/checkout">{t("links.cart")}</Link>
       </div>
       <button onClick={handleChangeLanguage}>{t("changeLang")}</button>

@@ -1,12 +1,39 @@
 import { useTranslation } from "react-i18next";
 import type { JSX } from "react/jsx-runtime";
-import type { tracklist } from "../data/data";
+import { getProductByID, type tracklist } from "../data/data";
+import { Link, useNavigate, useParams } from "react-router";
+import { useEffect, useState } from "react";
 
-export const Card = ({product}): JSX.Element => {
+export const Card = (): JSX.Element => {
   const { t } = useTranslation("card")
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null)
+
+  useEffect(() => {
+    const foundProduct = getProductByID(id)
+    if (!foundProduct) {
+      navigate("/");
+      return
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setProduct(foundProduct)
+  }, [id, navigate])
   
+
+  if (!product) return <h2>Loading...</h2>
+
   return (
-    <div className="card">
+    <div>
+      <div className="breadcrumbs">
+        <Link to="/">{t("links.home")}</Link>
+        <p>{">"}</p>
+        <Link to="/products">{t("links.shop")}</Link>
+        <p>{">"}</p>
+        <Link to={`/products/${product.id}`}>{product.title}</Link>
+      </div>
+      {/* Card */}
+      <div className="card">
       <img src={product.images[0].resource_url} alt={"album cover of " + product.title} />
       <h3>{product.title}</h3>
       <p>{t("lowest")} ${product.lowest_price}</p>
@@ -39,5 +66,7 @@ export const Card = ({product}): JSX.Element => {
       <button className="add-to-cart">{t("add")}</button>
       <button className="go-back">{t("back")}</button>
     </div>
+    </div>
+    
   )
 }

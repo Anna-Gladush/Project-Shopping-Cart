@@ -2,5 +2,9 @@
   "lowest": "Lowest price: ",
   "artists": "Artists: ",
   "add": "Add to cart",
-  "back": "Go back"
+  "back": "Go back",
+  "links": {
+    "home": "Home",
+    "shop": "Shop"
+  }
 }

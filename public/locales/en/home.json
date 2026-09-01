@@ -39,5 +39,15 @@
     "tax": "Tax included and shipping calculated at checkout",
     "continue": "Continue shopping",
     "checkout": "Checkout"
+  }, 
+  "genres": {
+    "all": "All",
+    "rock": "Rock",
+    "funk-soul": "Funk / Soul",
+    "blues": "Blues",
+    "folk": "Folk, World, & Country",
+    "jazz": "Jazz",
+    "pop": "Pop",
+    "electronic": "Electronic"
   }
 }

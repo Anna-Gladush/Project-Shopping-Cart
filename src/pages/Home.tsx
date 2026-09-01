@@ -21,18 +21,18 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
               const img_src = product.images[0].resource_url;
               if (idx > 3) return;
               return (
-                <a key={product.id} className="product-card">
+                <Link to={`/products/${product.id}`} key={product.id} className="product-card">
                   <div>
                     <img src={img_src} alt={"album cover of " + product.title} width={50}/>
                     <p>{product.artists[0].name}</p>
                     <p>{product.title}</p>
                     <p>${product.lowest_price}</p>
                   </div>
-                </a>
+                </Link>
               )})}
         </div>
         <div className="visit-shop">
-          <Link to="shop">{t("homepage.visit")}<img src="" alt="" className="img-visit-shop"/></Link>
+          <Link to="/products">{t("homepage.visit")}<img src="./images/natalia-bazyl--QHpWfg-C8c-unsplash.png" alt="" className="img-visit-shop"/></Link>
         </div>
       </section>
     </>

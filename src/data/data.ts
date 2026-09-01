@@ -17606,3 +17606,7 @@ export const data: discogs[] = [
 export function getProducts() {
   return data;
 }
+
+export function getProductByID(id) {
+  return data.find(product => product.id === Number(id))
+}
