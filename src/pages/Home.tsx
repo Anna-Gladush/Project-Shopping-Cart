@@ -13,10 +13,12 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
         <div className="hero-section">
           <div className="hero-text">
             <h2>{t("homepage.welcome")}</h2>
-            <p>{t("homepage.p1")}</p>
-            <p>{t("homepage.p2")}</p>
+            <div className="hero-text-description">
+              <p>{t("homepage.p1")}</p>
+              <p>{t("homepage.p2")}</p>
+            </div>
           </div>
-          <img src="/images/joss-broward-ItgwitBR4no-unsplash.jpg"/>
+          <img src="/images/joss-broward-ItgwitBR4no-unsplash.jpg" className="hero-image"/>
         </div>
         <div className="best-seller">
           <h3>Best sellers:</h3>
@@ -27,16 +29,18 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
                 <Link to={`/products/${product.id}`} key={product.id} className="product-card">
                   <div>
                     <img src={img_src} alt={"album cover of " + product.title}/>
-                    <p>{product.artists[0].name}</p>
+                    <h4>{product.artists[0].name}</h4>
                     <p>{product.title}</p>
-                    <p>${product.lowest_price}</p>
+                    <p className="price">${product.lowest_price}</p>
                   </div>
                 </Link>
               )})}
         </div>
+        <hr className="divider"/>
         <div className="visit-shop">
           <Link to="/products">{t("homepage.visit")}<img src="./images/natalia-bazyl--QHpWfg-C8c-unsplash.png" alt="" className="img-visit-shop"/></Link>
         </div>
+        <hr className="divider"/>
       </section>
     </>
   )
