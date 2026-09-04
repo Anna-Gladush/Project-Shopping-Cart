@@ -40,7 +40,6 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
         <div className="visit-shop">
           <Link to="/products">{t("homepage.visit")}<img src="./images/natalia-bazyl--QHpWfg-C8c-unsplash.png" alt="" className="img-visit-shop"/></Link>
         </div>
-        <hr className="divider"/>
       </section>
     </>
   )

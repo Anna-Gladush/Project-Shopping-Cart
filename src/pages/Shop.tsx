@@ -24,7 +24,7 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
     return (
       <div key={product.id} className="product-card">
         <div>
-          <img src={img_src} alt={"album cover of " + product.title} width={50}/>
+          <img src={img_src} alt={"album cover of " + product.title}/>
           <p>{product.artists[0].name}</p>
           <p>{product.title}</p>
           <p>${product.lowest_price}</p>

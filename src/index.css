@@ -2,6 +2,10 @@
   font-family: Cascadia_Mono;
   src: url(assets/Cascadia_Mono/static/CascadiaMono-Regular.ttf) format('truetype');
 } 
+@font-face {
+  font-family: AlegreyaSC_Bold;
+  src: url(assets/Alegreya_SC/AlegreyaSC-ExtraBold.ttf) format('truetype');
+} 
 
 @font-face {
   font-family: AlegreyaSC;
@@ -21,9 +25,7 @@
   text-align: center;
 }
 
-body {
-  margin: 5px;
-}
+
 
 a:link,
 a:visited,
@@ -105,6 +107,15 @@ footer button:active {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.footer-main,
+.footer-links {
+  background-color: gainsboro;
+}
+
+footer .rights {
+  padding-bottom: 30px;
+}
+
 footer .news-letter {
   display: flex;
   flex-direction: column;
@@ -116,23 +127,54 @@ footer .news-letter {
 
 footer .footer-main {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
-.footer-main .footer-links{
+.footer-links {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0;
 }
 
 .footer-navigation,
 .footer-categories {
   display: flex;
   flex-direction: column;
+  align-items: baseline;
+  gap: 5px;
 }
+
+.footer-shop-info {
+  padding-bottom: 30px;
+  background-color: white;
+}
+
+.footer-shop-info p {
+  padding: 10px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .img-social {
   width: 30px;
 }
 
-/* section homepage */
+footer .developer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.developer svg {
+  padding-right: 10px;
+}
+
+/* HOMEPAGE */
 section .homepage .hero-section {
   position: relative;
   display: flex;
@@ -179,7 +221,7 @@ a.product-card p.price {
 .visit-shop a:visited {
   margin-block: 10px;
   color: var(--red-color);
-  font-family: AlegreyaSC, 'Courier New', Courier, monospace;
+  font-family: AlegreyaSC_Bold;
   letter-spacing: 2px;
   word-spacing: 10px;
 }
@@ -190,6 +232,73 @@ a.product-card p.price {
   background-color: #ccc;
   margin: 25px auto;
   width: 150px;
+}
+
+/* ABOUT */
+section.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.about img {
+  max-width: 100%;
+  height: auto;
+}
+
+section.about .pros {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-block: 30px;
+  width: 250px;
+}
+
+.pros div {
+  background-color: gainsboro;
+  padding: 20px 10px;
+  border-radius: 15px;
+}
+
+.about-title {
+  font-family: AlegreyaSC_Bold;
+  font-size: 1.2em;
+  word-spacing: 5px;
+  margin-bottom: 10px;
+}
+
+.about-description {
+  text-align: left;
+}
+
+/* SHOP */
+section.shop {
+  margin: 30px;
+}
+
+section.shop .breadcrumbs {
+  display: flex;
+  gap: 10px;
+  margin-block: 20px;
+}
+
+section.shop .categories {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.shop .products {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.shop .product-card div{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
