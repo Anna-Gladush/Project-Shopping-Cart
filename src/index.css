@@ -25,8 +25,6 @@
   text-align: center;
 }
 
-
-
 a:link,
 a:visited,
 a:hover,
@@ -93,7 +91,9 @@ footer button {
 }
 
 nav button,
-footer button {
+footer button,
+section.shop button,
+section.card .controller button {
   height: auto;
   background-color: gainsboro;
   border: none;
@@ -101,7 +101,13 @@ footer button {
   font-size: 0.8em;
 }
 nav button:active,
-footer button:active {
+footer button:active,
+section.shop button:active,
+.card .quantity button:active,
+.card .controller button.add-to-cart:active,
+.quantity-controls button:active,
+.gift button:active,
+button.checkout-btn:active {
   background-color: var(--red-color);
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -146,7 +152,7 @@ footer .footer-main {
 }
 
 .footer-shop-info {
-  padding-bottom: 30px;
+  padding-block: 30px;
   background-color: white;
 }
 
@@ -241,6 +247,11 @@ section.about {
   align-items: center;
 }
 
+.about h2 {
+  margin-bottom: 30px;
+}
+
+section.card img,
 section.about img {
   max-width: 100%;
   height: auto;
@@ -276,7 +287,7 @@ section.shop {
   margin: 30px;
 }
 
-section.shop .breadcrumbs {
+.breadcrumbs {
   display: flex;
   gap: 10px;
   margin-block: 20px;
@@ -298,7 +309,182 @@ section.shop .categories {
 .shop .product-card div{
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+}
+
+.shop .product-card div div a {
+  color: var(--red-color);
+}
+.product-title {
+  font-family: AlegreyaSC_Bold;
+  font-size: 1.2em;
+  word-spacing: 5px;
+}
+
+.shop button {
+  width: max-content;
+  padding: 10px;
+}
+
+/* CARD */
+section.card {
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  color: var(--red-color)
+}
+
+.card h4 {
+  margin-block: 20px;
+}
+
+.card .year {
+  color: var(--red-color);
+  margin-block: 20px;
+}
+
+.card .tracklist {
+  margin-block: 30px; 
+}
+
+.card .track {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .quantity .product-quantity-label {
+  margin-top: 10px;
+  height: 20px;
+}
+
+.card .quantity button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.card .quantity button,
+.quantity-controls button  {
+  background-color: gray;
+  color: white;
+  font-weight: bolder;
+  font-size: 1em;
+  border: none;
+}
+
+.card .controller {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-block: 10px;
+}
+.card .controller button {
+  padding: 10px;
+}
+
+.card .controller button.go-back {
+  background-color: white;
+}
+.card .controller button.go-back:active {
+  color: var(--red-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* CART */
+section.cart {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cart-products {
+  display: flex;
+}
+
+.cart .cart-product-titles,
+.cart-products .cart-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.quantity-controls button {
+  margin-block: 10px;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.quantity-controls div {
+  display: flex;
+  height: fit-content;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cart button.remove-btn {
+  font-family: Cascadia_Mono;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+section.cart img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gift {
+  background-color: gainsboro;
+  padding: 20px 10px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.gift button {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.gift button,
+.gift button:disabled,
+button.checkout-btn {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+}
+
+input#gift {
+  padding: 3px 20px;
+}
+
+.discount {
+  margin-block: 20px 0;
+}
+
+.tax {
+  margin-block: 30px;
+}
+
+.total a,
+.total-amount {
+  color: var(--red-color);
+}
+
+.checkout-controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {

@@ -25,12 +25,12 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
       <div key={product.id} className="product-card">
         <div>
           <img src={img_src} alt={"album cover of " + product.title}/>
-          <p>{product.artists[0].name}</p>
+          <p className="product-title">{product.artists[0].name}</p>
           <p>{product.title}</p>
           <p>${product.lowest_price}</p>
           <div>
-            <Link to={`/products/${product.id}`}>View Details</Link>
-            <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+            <Link to={`/products/${product.id}`}>{t("details")}</Link>
+            <button onClick={() => addToCart(product.id)}>{t("add")}</button>
           </div>
         </div>
       </div>

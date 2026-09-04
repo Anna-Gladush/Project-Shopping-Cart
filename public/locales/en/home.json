@@ -34,6 +34,7 @@
       "total": "Total"
     },
     "gift": "Enter your gift code:",
+    "off": "20% off discount code has been activated",
     "apply": "Apply",
     "subtotal": "Subtotal: ",
     "tax": "Tax included and shipping calculated at checkout",
@@ -52,5 +53,7 @@
   },
   "order": {
     "place": "Successful Order!"
-  }
+  },
+  "details": "View Details",
+  "add": "Add to Cart"
 }

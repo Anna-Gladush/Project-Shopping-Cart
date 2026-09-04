@@ -13,20 +13,22 @@ export const Cart = (): JSX.Element => {
   const cartList = cartItems.map((item) => {
     return (
       <div className="cart-item" key={item.product.title}>
-        <img src={item.product.images[0].resource_url} alt={"album cover of " + item.product.title } />
         <div>
+          <img src={item.product.images[0].resource_url} alt={"album cover of " + item.product.title } />
           <p>{item.product.title}</p>
         </div>
         <div>
           <p>${item.product.lowest_price}</p>
+        </div>
           <div className="quantity-controls">
-            <button className="increment" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
             <p>{item.quantity}</p>
-            <button className="decrement" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+            <div>
+              <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+              <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+            </div>
           </div>
           <p>${Math.round(item.product.lowest_price * item.quantity * 100)/100}</p>
-        </div>
-        <button onClick={() => removeFromCart(item.id)}>Remove</button>
+        <button className="remove-btn" onClick={() => removeFromCart(item.id)}>{t("cart.remove")}</button>
       </div>
     )
   })
@@ -42,34 +44,33 @@ export const Cart = (): JSX.Element => {
         <p>{t("cart.disclaimer")}</p>
         <div className="cart-product-titles">
           <p>{t("cart.header.product")}</p>
-          <div>
-            <p>{t("cart.header.price")}</p>
-            <p>{t("cart.header.quantity")}</p>
-            <p>{t("cart.header.total")}</p>
-          </div>
+          <p>{t("cart.header.price")}</p>
+          <p>{t("cart.header.quantity")}</p>
+          <p>{t("cart.header.total")}</p>
         </div>
+        <hr />
         <div className="cart-products">
           {cartList}
         </div>
         <div>
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={(e) => e.preventDefault()}  className="gift">
             <p>{t("cart.gift")} </p>
             <input type="text" name="gift" id="gift" value={giftInput.input} onChange={(e) => setGiftInput({...giftInput, input: e.target.value})}/>
-            <button onClick={() => {
+            <button disabled={giftInput.applied} onClick={() => {
               if (giftInput.input === "discount") {
               setGiftInput({...giftInput, applied: true})}}
               }>{t("cart.apply")}</button>
-            <p>{giftInput.applied ? "20% off discount code has been activated" : ""}</p>
+            <p className="discount">{giftInput.applied ? t("cart.off") : ""}</p>
           </form>
-          <div>
+          <div className="total">
             <div>
               <p>{t("cart.subtotal")}</p>
-              <p>${giftInput.applied ? (total - total * 0.2) : total}</p>
+              <p className="total-amount">${giftInput.applied ? (total - total * 0.2) : total}</p>
             </div>
-            <p>{t("cart.tax")}</p>
-            <div>
+            <p className="tax">{t("cart.tax")}</p>
+            <div className="checkout-controller">
               <Link to="/products">{t("cart.continue")}</Link>
-              <button onClick={placeOrder}>{t("cart.checkout")}</button>
+              <button className="checkout-btn" onClick={placeOrder}>{t("cart.checkout")}</button>
             </div>
           </div>
         </div>
