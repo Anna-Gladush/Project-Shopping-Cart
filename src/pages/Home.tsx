@@ -11,9 +11,12 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
     <>
       <section className="homepage">
         <div className="hero-section">
-          <h2>{t("homepage.welcome")}</h2>
-          <p>{t("homepage.p1")}</p>
-          <p>{t("homepage.p2")}</p>
+          <div className="hero-text">
+            <h2>{t("homepage.welcome")}</h2>
+            <p>{t("homepage.p1")}</p>
+            <p>{t("homepage.p2")}</p>
+          </div>
+          <img src="/images/joss-broward-ItgwitBR4no-unsplash.jpg"/>
         </div>
         <div className="best-seller">
           <h3>Best sellers:</h3>
@@ -23,7 +26,7 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
               return (
                 <Link to={`/products/${product.id}`} key={product.id} className="product-card">
                   <div>
-                    <img src={img_src} alt={"album cover of " + product.title} width={50}/>
+                    <img src={img_src} alt={"album cover of " + product.title}/>
                     <p>{product.artists[0].name}</p>
                     <p>{product.title}</p>
                     <p>${product.lowest_price}</p>

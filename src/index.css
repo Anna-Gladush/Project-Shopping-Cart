@@ -1,31 +1,155 @@
-@import "tailwindcss";
+@font-face {
+  font-family: Cascadia_Mono;
+  src: url(assets/Cascadia_Mono/static/CascadiaMono-Regular.ttf) format('truetype');
+} 
+
+@font-face {
+  font-family: AlegreyaSC;
+  src: url(assets/Alegreya_SC/AlegreyaSC-Black.ttf) format('truetype');
+} 
+
+:root {
+  --red-color: #e60024;
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family:  Cascadia_Mono, 'Courier New', Courier, monospace;
+  /* outline: 1px red solid; */
 }
+
 a:hover,
 button {
   cursor: pointer;
 }
 
+.logo-link h1,
+.logo-name {
+  font-family: AlegreyaSC, 'Courier New', Courier, monospace;
+  font-size: 1em;
+}
+
+nav .cart div {
+  top: -4px;
+  left: 14px;
+  background-color: var(--red-color);
+  color: white;
+  border-radius: 10px;
+  width: 15px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
+  margin: 5px;
+}
+
+nav .logo-link {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  width: min-content;
+}
+nav .logo-link img {
   height: 50px;
+  width: auto;
+}
+nav .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+nav button {
+  margin-left: 10px;
+  background-color: gainsboro;
+  max-width: 80px;
+  height: auto;
+  border: none;
+  border-radius: 17px;
+  font-size: 0.8em;
+}
+nav button:active {
+  background-color: var(--red-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* section homepage */
+section .homepage .hero-section {
+  display: flex;
+}
+.hero-section img {
+  max-width: 100%;
+  height: auto;
+}
+.homepage .best-seller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+a.product-card div {
+  width: min-content;
+}
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+footer .footer-main {
+  display: flex;
+
+}
+
+.footer-main .footer-links{
+  display: flex;
+}
+
+.footer-navigation,
+.footer-categories {
+  display: flex;
+  flex-direction: column;
+}
+.img-social {
+  width: 50px;
+}
+
+
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  nav h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+/* nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .logo-link {
   display: flex;
   align-items: center;
+
 }
 
-nav .logo-link img {
-  height: 50px;
-  width: auto;
-}
+
 
 section.shop .products {
   display: flex;
@@ -35,6 +159,4 @@ section.shop .products {
 section.shop .products div {
   width: 300px;
 }
-.img-social {
-  width: 50px;
-}
+*/
