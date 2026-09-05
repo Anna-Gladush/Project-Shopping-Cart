@@ -15,8 +15,10 @@ A simple vinyl shop.
 
 ## How to improve?
 
+- localStorage
 - search by artist's or album's name
 - react testing
+- add strype ?
 
 ## What I Learned
 
@@ -28,7 +30,22 @@ Clone the repository <code>git clone https://github.com/Anna-Gladush/Project-Sho
 
 Install the packages using the command <code>npm install</code>
 
+Run <code>npm run dev</code>
+
 ## Live Preview
+
+<table>
+<tr>
+  <th>Mobile</th>
+  <th>Tablet</th>
+  <th>Desktop</th>
+</tr>
+<tr>
+  <td><img src="./src/assets/screenshots/iPhone 12 Pro-1788599122220.jpeg" alt="mobile view"/></td>
+  <td><img src="./src/assets/screenshots/iPad-1788599131118.jpeg" alt="tablet view"/></td>
+  <td><img src="./src/assets/screenshots/MacBook Pro-1788599137499.jpeg" alt="desktop view"/></td>
+</tr>
+</table>
 
 ## Resources
 

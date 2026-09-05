@@ -1,11 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 import { getProductByID } from "../data/data";
+import { useLocalStorage } from "../customHook/useLocalStorage"
+
 
 export const CartContext = createContext(null);
 
 export default function CartProvider({ children }) {
-  const [cartItems, setCartItems ] = useState([]);
+  const { storedValue, setValue} = useLocalStorage("cart", [])
+  const [cartItems, setCartItems ] = useState(storedValue);
 
   function addToCart(productId) {
     const existing = cartItems.find((item) => item.id === productId);
@@ -17,9 +20,13 @@ export default function CartProvider({ children }) {
           : item
       );
       setCartItems(updatedCartItems);
+      setValue(updatedCartItems)
+
     } else {
       setCartItems([...cartItems, { id: productId, quantity: 1 }]);
+      setValue([...cartItems, { id: productId, quantity: 1 }])
     }
+
   }
 
   function getCartItemsWithProducts() {
@@ -30,7 +37,9 @@ export default function CartProvider({ children }) {
   }
 
   function removeFromCart(productId) {
-    setCartItems(cartItems.filter(item => item.id !== productId ))
+    const filtered = cartItems.filter(item => item.id !== productId )
+    setCartItems(filtered);
+    setValue(filtered)
   }
 
   function updateQuantity(productId, quantity) {
@@ -38,11 +47,13 @@ export default function CartProvider({ children }) {
       removeFromCart(productId);
       return;
     }
-    setCartItems(cartItems.map((item) =>
+    const mapped = cartItems.map((item) =>
       item.id === productId
         ? { id: productId, quantity: quantity}
         : item
-    ))
+    )
+    setCartItems(mapped);
+    setValue(mapped);
   }
 
   function getAllItemQuantity() {
@@ -62,6 +73,7 @@ export default function CartProvider({ children }) {
 
   function clearCart() {
     setCartItems([])
+    setValue([])
   }
   return (
     <CartContext.Provider
