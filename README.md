@@ -10,7 +10,6 @@ A simple vinyl shop.
   <li><code>React Router</code></li>
   <li><code>React Testing Library</code></li>
   <li><code>i18next</code></li>
-  <li><code>Tailwind CSS</code></li>
 
 </ul>
 

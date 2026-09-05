@@ -583,33 +583,3 @@ input#gift {
     width: 100%;
   }
 }
-
-
-
-/* FADE ANIMATION */
-/* .hero-text-description { */
-  /* position: absolute;
-  top: 220px; */
-  /* color: white; */
-  /* visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3 ease-in, visibility 0.3 ease-in, color 0.3 ease-in;
-  z-index: 2; */
-/* } */
-/* .hero-section:focus .hero-text-description,
-.hero-section:hover .hero-text-description {
-  visibility: visible;
-  opacity: 1;
-  color: black;
-} */
-
-/* .hero-section .hero-image {
-  max-width: 100%;
-  height: auto; */
-  /* transition: opacity 0.3 ease; */
-/* } */
-
-/* .hero-section:focus .hero-image,
-.hero-section:hover .hero-image {
-  opacity: 0.6;
-} */
