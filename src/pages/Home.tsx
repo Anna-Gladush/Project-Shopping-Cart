@@ -20,8 +20,8 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
           </div>
           <img src="/images/joss-broward-ItgwitBR4no-unsplash.jpg" className="hero-image"/>
         </div>
+        <h3 className="best-seller-title">Best sellers:</h3>
         <div className="best-seller">
-          <h3>Best sellers:</h3>
           {products.map((product: discogs, idx: number): JSX.Element => {
               const img_src = product.images[0].resource_url;
               if (idx > 3) return;

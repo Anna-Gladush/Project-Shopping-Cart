@@ -14,8 +14,8 @@ export const Cart = (): JSX.Element => {
     return (
       <div className="cart-item" key={item.product.title}>
         <div>
-          <img src={item.product.images[0].resource_url} alt={"album cover of " + item.product.title } />
           <p>{item.product.title}</p>
+          <img src={item.product.images[0].resource_url} alt={"album cover of " + item.product.title } />
         </div>
         <div>
           <p>${item.product.lowest_price}</p>

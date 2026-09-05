@@ -57,7 +57,7 @@ export default function CartProvider({ children }) {
       return total + (product ? product.lowest_price * item.quantity : 0);
     }, 0);
 
-    return total;
+    return Math.round(total * 100) / 100;
   }
 
   function clearCart() {

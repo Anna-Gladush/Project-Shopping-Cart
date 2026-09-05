@@ -16,9 +16,6 @@ A simple vinyl shop.
 
 ## How to improve?
 
-- check for each route to be correct;
-- check UX logic;
-- css styling;
 - search by artist's or album's name
 - react testing
 

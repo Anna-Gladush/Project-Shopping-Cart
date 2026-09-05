@@ -42,29 +42,34 @@ export const Card = (): JSX.Element => {
       </div>
       {/* Card */}
       <div className="card">
-      <img src={product.images[0].resource_url} alt={"album cover of " + product.title} />
-      <h3>{product.title}</h3>
-      <div>
-        <h4>{t("artists")}</h4>
-        {product.artists.map((artist) => {
-          return (
-            <p key={artist.name}>{artist.name}</p>
-          )
-        })}
-        <p className="year">{product.year}</p>
-        <div className="tracklist">
-          <h4>Tracklist</h4>
-          {product.tracklist.map((track: tracklist) => {
+        <div className="card-details">
+        <div>
+          <h3>{product.title}</h3>
+          <img src={product.images[0].resource_url} alt={"album cover of " + product.title} />
+          <div>
+        </div>
+        <div>
+          <h4>{t("artists")}</h4>
+          {product.artists.map((artist) => {
             return (
-              <li className="track" key={track.title}>
-                <p>{track.position}</p>
-                <p>{track.title}</p>
-                <p>{track.duration}</p>
-              </li>
+              <p key={artist.name}>{artist.name}</p>
             )
           })}
+          <p className="year">{product.year}</p>
+          <div className="tracklist">
+            <h4>Tracklist</h4>
+            {product.tracklist.map((track: tracklist) => {
+              return (
+                <li className="track" key={track.title}>
+                  <p>{track.position}</p>
+                  <p>{track.title}</p>
+                  <p>{track.duration}</p>
+                </li>
+              )
+            })}
+          </div>
         </div>
-
+      </div>
       </div>
       <hr className="divider"/>
       <div className="quantity">
