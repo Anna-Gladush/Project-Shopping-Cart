@@ -1,8 +1,8 @@
 {
   "changeLang": "Change Language",
   "homepage": {
-    "welcome": "Welcome to SignalToNoise!",
-    "p1": "SignalToNoise is your one-stop destination for vinyl records!",
+    "welcome": "Welcome to AudioVinyl!",
+    "p1": "AudioVinyl is your one-stop destination for vinyl records!",
     "p2": "We want you to have a lot of fun listening to analogue sound and live music!",
     "visit": "Visit Shop"
   },
@@ -26,7 +26,7 @@
   "cart": {
     "remove": "Remove",
     "h2":"Your cart",
-    "disclaimer": "SignalToNoise is not responsible for typographical or photographical errors.",
+    "disclaimer": "AudioVinyl is not responsible for typographical or photographical errors.",
     "header": {
       "product": "Product",
       "price": "Price",

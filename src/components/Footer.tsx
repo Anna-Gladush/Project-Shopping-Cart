@@ -17,7 +17,7 @@ export const Footer = (): JSX.Element => {
       </div>
       <div className="footer-main">
         <div className="footer-shop-info">
-          <p className="logo-name">SignalToNoise</p>
+          <p className="logo-name">Audio Vinyl</p>
           <p>{t("footer.shopInfo.description")}</p>
           <div className="footer-socials">
             <img src="/images/pinterest-com-logo.png" alt="pinterest logo" className="img-social" />

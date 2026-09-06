@@ -330,7 +330,7 @@ export const data: discogs[] = [
         height: 450,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Blues Rock", "Southern Rock", "Hard Rock"],
     year: 1976,
     tracklist: [
@@ -870,7 +870,7 @@ export const data: discogs[] = [
         height: 564,
       },
     ],
-    genres: ["Rock", "Funk / Soul", "Blues", "Folk, World, & Country"],
+    genres: ["Rock", "Funk / Soul", "Blues", "Folk, World, & Country", "Рок", "Фанк / Соул", "Блюз", "Фолк, народная музыка и кантри"],
     styles: ["Pop Rock", "Blues Rock", "Rock & Roll"],
     year: 2026,
     tracklist: [
@@ -3081,7 +3081,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Jazz", "Pop"],
+    genres: ["Jazz", "Pop", "Джаз", "Поп"],
     styles: ["Big Band", "Ballad", "Vocal"],
     year: 1960,
     tracklist: [
@@ -3479,7 +3479,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Electronic", "Pop"],
+    genres: ["Electronic", "Pop", "Электронная музыка", "Поп"],
     styles: ["Synth-pop", "Holiday"],
     year: 1984,
     tracklist: [
@@ -3608,7 +3608,7 @@ export const data: discogs[] = [
         height: 513,
       },
     ],
-    genres: ["Funk / Soul", "Pop"],
+    genres: ["Funk / Soul", "Pop", "Фанк / Соул", "Поп"],
     styles: ["Minneapolis Sound", "Funk", "Pop Rock"],
     year: 1983,
     tracklist: [
@@ -3790,7 +3790,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Rock & Roll"],
     year: 1970,
     tracklist: [
@@ -4135,7 +4135,7 @@ export const data: discogs[] = [
         height: 594,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Pop Rock"],
     year: 1986,
     tracklist: [
@@ -4295,7 +4295,7 @@ export const data: discogs[] = [
         height: 597,
       },
     ],
-    genres: ["Funk / Soul"],
+    genres: ["Funk / Soul", "Фанк / Соул"],
     styles: ["Gospel", "Rhythm & Blues", "Soul"],
     year: 1980,
     tracklist: [
@@ -4424,7 +4424,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Prog Rock"],
     year: 1974,
     tracklist: [
@@ -4691,7 +4691,7 @@ export const data: discogs[] = [
         height: 589,
       },
     ],
-    genres: ["Electronic", "Pop"],
+    genres: ["Electronic", "Pop", "Электронная музыка", "Поп"],
     styles: ["Synth-pop"],
     year: 1988,
     tracklist: [
@@ -5291,7 +5291,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Glam"],
     year: 1976,
     tracklist: [
@@ -6011,7 +6011,7 @@ export const data: discogs[] = [
         height: 598,
       },
     ],
-    genres: ["Funk / Soul", "Blues"],
+    genres: ["Funk / Soul", "Blues", "Фанк / Соул", "Блюз"],
     styles: ["Rhythm & Blues", "Soul"],
     year: 1967,
     tracklist: [
@@ -6394,7 +6394,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Alternative Rock", "New Wave"],
     year: 1981,
     tracklist: [
@@ -6670,7 +6670,7 @@ export const data: discogs[] = [
         height: 583,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock"],
     year: 1983,
     tracklist: [
@@ -7006,7 +7006,7 @@ export const data: discogs[] = [
         height: 592,
       },
     ],
-    genres: ["Electronic", "Funk / Soul"],
+    genres: ["Electronic", "Funk / Soul", "Электронная музыка", "Фанк / Соул"],
     styles: ["Swingbeat", "Funk", "Neo Soul"],
     year: 1986,
     tracklist: [
@@ -7297,7 +7297,7 @@ export const data: discogs[] = [
         height: 596,
       },
     ],
-    genres: ["Rock", "Pop"],
+    genres: ["Rock", "Pop", "Рок", "Поп"],
     styles: ["Rhythm & Blues", "Rock & Roll"],
     year: 1964,
     tracklist: [
@@ -7578,7 +7578,7 @@ export const data: discogs[] = [
         height: 308,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Prog Rock", "Psychedelic Rock"],
     year: 1973,
     tracklist: [
@@ -8021,7 +8021,7 @@ export const data: discogs[] = [
         height: 561,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Heavy Metal"],
     year: 1970,
     tracklist: [
@@ -8225,7 +8225,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Funk / Soul", "Pop"],
+    genres: ["Funk / Soul", "Pop", "Фанк / Соул", "Поп"],
     styles: ["Contemporary R&B", "Disco", "Soul"],
     year: 1982,
     tracklist: [
@@ -8609,7 +8609,7 @@ export const data: discogs[] = [
         height: 439,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Grunge", "Alternative Rock"],
     year: 1991,
     tracklist: [
@@ -8820,7 +8820,7 @@ export const data: discogs[] = [
         height: 564,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Thrash", "Speed Metal"],
     year: 1986,
     tracklist: [
@@ -9224,7 +9224,7 @@ export const data: discogs[] = [
         height: 450,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: [
       "Hard Rock",
       "Pop Rock",
@@ -9674,7 +9674,7 @@ export const data: discogs[] = [
         height: 307,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Blues Rock"],
     year: 1980,
     tracklist: [
@@ -9916,7 +9916,7 @@ export const data: discogs[] = [
         height: 367,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Blues Rock"],
     year: 1971,
     tracklist: [
@@ -10081,7 +10081,7 @@ export const data: discogs[] = [
         height: 516,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Rock & Roll"],
     year: 1971,
     tracklist: [
@@ -10426,7 +10426,7 @@ export const data: discogs[] = [
         height: 566,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Punk"],
     year: 1977,
     tracklist: [
@@ -10667,7 +10667,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock", "Folk, World, & Country"],
+    genres: ["Rock", "Folk, World, & Country", "Рок", "Фолк, народная музыка и кантри"],
     styles: ["Folk Rock", "Blues Rock"],
     year: 1965,
     tracklist: [
@@ -10856,7 +10856,7 @@ export const data: discogs[] = [
         height: 592,
       },
     ],
-    genres: ["Funk / Soul"],
+    genres: ["Funk / Soul", "Фанк / Соул"],
     styles: ["Soul", "Disco"],
     year: 1976,
     tracklist: [
@@ -11868,7 +11868,7 @@ export const data: discogs[] = [
         height: 598,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Heavy Metal"],
     year: 1987,
     tracklist: [
@@ -12264,7 +12264,7 @@ export const data: discogs[] = [
         height: 198,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Classic Rock", "Country Rock"],
     year: 1976,
     tracklist: [
@@ -12758,7 +12758,7 @@ export const data: discogs[] = [
         height: 225,
       },
     ],
-    genres: ["Electronic", "Rock"],
+    genres: ["Electronic", "Rock", "Электронная музыка", "Рок"],
     styles: ["Synth-pop"],
     year: 1987,
     tracklist: [
@@ -12983,7 +12983,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Electronic", "Rock"],
+    genres: ["Electronic", "Rock", "Электронная музыка", "Рок"],
     styles: ["Experimental"],
     year: 1977,
     tracklist: [
@@ -13291,7 +13291,7 @@ export const data: discogs[] = [
         height: 450,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Heavy Metal"],
     year: 1982,
     tracklist: [
@@ -13635,7 +13635,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Electronic", "Rock", "Pop"],
+    genres: ["Electronic", "Rock", "Pop", "Электронная музыка", "Рок", "Поп"],
     styles: ["New Wave", "Pop Rock", "Synth-pop"],
     year: 1985,
     tracklist: [
@@ -14338,7 +14338,7 @@ export const data: discogs[] = [
         height: 144,
       },
     ],
-    genres: ["Electronic"],
+    genres: ["Electronic", "Электронная музыка"],
     styles: ["Disco", "House", "Electro", "French House"],
     year: 2001,
     tracklist: [
@@ -15130,7 +15130,7 @@ export const data: discogs[] = [
         height: 597,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Hard Rock", "Rock & Roll"],
     year: 1970,
     tracklist: [
@@ -15344,7 +15344,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock", "Pop"],
+    genres: ["Rock", "Pop", "Рок", "Поп"],
     styles: ["New Wave", "Pop Rock"],
     year: 1983,
     tracklist: [
@@ -15662,7 +15662,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Electronic", "Rock"],
+    genres: ["Electronic", "Rock", "Электронная музыка", "Рок"],
     styles: ["Psychedelic Rock", "Indie Rock"],
     year: 2015,
     tracklist: [
@@ -15945,7 +15945,7 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock"],
+    genres: ["Rock", "Рок"],
     styles: ["Pop Rock"],
     year: 2003,
     tracklist: [

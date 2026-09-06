@@ -16,7 +16,7 @@ export const NavBar = (): JSX.Element => {
       <div className="logo">
         <Link to="/" className="logo-link">
           <img src="/vinyl.svg" alt="vinyl shop logo" />
-          <h1>Signal to Noise</h1>
+          <h1>Audio Vinyl</h1>
         </Link>
       </div>
       <div className="links">

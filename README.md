@@ -15,6 +15,8 @@ A simple vinyl shop.
 
 ## How to improve?
 
+- known issue: doesn't correctly search in russian categories.
+- add cds and other media...
 - react testing
 - add strype ?
 
