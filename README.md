@@ -15,8 +15,6 @@ A simple vinyl shop.
 
 ## How to improve?
 
-- localStorage
-- search by artist's or album's name
 - react testing
 - add strype ?
 

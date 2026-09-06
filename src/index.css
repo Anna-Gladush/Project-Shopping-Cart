@@ -307,6 +307,42 @@ section.shop .categories {
   margin-bottom: 30px;
 }
 
+section.shop form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+input {
+  border: 1px gainsboro solid;
+}
+
+section.shop input {
+  width: 200px;
+  height: 24px;
+  border-radius: 20px;
+}
+
+input:active,
+input:focus {
+  border: 1px gainsboro solid;
+  outline: none;
+  
+}
+
+section.shop form button {
+  height: 24px;
+  width: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  user-select: none;
+  font-size: 0;
+  margin-left: -30px;
+}
+
 .shop .products {
   display: flex;
   flex-direction: column;
@@ -459,13 +495,13 @@ section.cart img {
 
 .gift button {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: -20px;
 }
 
 .gift button,
 .gift button:disabled,
 button.checkout-btn {
-  padding: 5px 20px;
+  padding: 4px 10px;
   border: none;
   border-radius: 5px;
   background-color: gray;

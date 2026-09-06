@@ -55,5 +55,6 @@
     "place": "Successful Order!"
   },
   "details": "View Details",
-  "add": "Add to Cart"
+  "add": "Add to Cart",
+  "searchProducts": "Search products..."
 }

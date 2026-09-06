@@ -10,16 +10,24 @@ export type ShopProps = {
 }
 
 export const Shop = ({products}: ShopProps): JSX.Element => {
-  const { addToCart } = useCart();
-  const [ searchParams ] = useSearchParams();
-  const category = searchParams.get('category') || 'all';
   const { t } = useTranslation("home");
 
-  function getProductByCategory(category) {
-    if (category === 'all') return products;
-    return products.filter(product => product.genres.includes(category))
+  const { addToCart } = useCart();
+  const [ searchParams, setSearchParams ] = useSearchParams();
+  const category = searchParams.get('category') || 'all';
+  const searchTerm = searchParams.get("q")?.toLowerCase() || "";
+
+  function getProductByCategory(category, searchTerm) {
+    return products.filter((product) => {
+      const matchesNameInProduct = product.title.toLowerCase().includes(searchTerm) || product.artists[0].name.toLowerCase().includes(searchTerm)
+      const matchesCategory = category === "all" ||product.genres.includes(category)
+
+      return matchesCategory && matchesNameInProduct
+    }
+  )
   }
-  const productList = getProductByCategory(category).map((product: discogs): JSX.Element => {
+
+  const productList = getProductByCategory(category, searchTerm).map((product: discogs): JSX.Element => {
     const img_src = product.images[0].resource_url;
     return (
       <div key={product.id} className="product-card">
@@ -40,6 +48,21 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
     <>
       <section className="shop">
         <h2>{t("links.shop")}</h2>
+
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          setSearchParams(searchParams)
+        }}>
+          <input type="text" defaultValue="" placeholder={t("searchProducts")} name="q" onChange={(e) => {
+            searchParams.set("q", e.target.value);
+            searchParams.set("category", "all");
+            }}/>
+          <button type="submit">
+            <img src="/icons/search.svg" />
+            Search
+            </button>
+        </form>
+
         <div className="breadcrumbs">
           <Link to="/">{t("links.home")}</Link>
           <p>{">"}</p>

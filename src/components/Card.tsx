@@ -25,12 +25,10 @@ export const Card = (): JSX.Element => {
   if (!product) return <h2>Loading...</h2>
 
   const productInCart = cartItems.find((item) => item.id === product.id);
-  console.log(cartItems)
   const productQuantityLabel = productInCart ? productInCart.quantity : "";
 
   const quantity = productInCart ? productInCart.quantity : 0;
 
-  console.log(quantity)
   return (
     <section className="card">
       <div className="breadcrumbs">
