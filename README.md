@@ -1,4 +1,4 @@
-# Shopping Cart
+# E-commerce Vinyl Shop
 
 A simple vinyl shop.
 
@@ -15,10 +15,8 @@ A simple vinyl shop.
 
 ## How to improve?
 
-- known issue: doesn't correctly search in russian categories.
-- add cds and other media...
-- react testing
-- add strype ?
+- known issue: doesn't accumulate for translation when searching through categories. Current fix: add translation to data.ts
+- Typography through html
 
 ## What I Learned
 
