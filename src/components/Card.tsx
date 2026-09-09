@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next";
 import type { JSX } from "react/jsx-runtime";
-import { getProductByID, type tracklist } from "../data/data";
+import { getProductByID, type tracklist, type artists, type discogs } from "../data/data";
 import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 
 export const Card = (): JSX.Element => {
-  const { updateQuantity, cartItems, addToCart } = useCart()!;
+  const { updateQuantity, cartItems, addToCart } = useCart();
   const { t } = useTranslation("card");
   const { id } = useParams();
   const navigate = useNavigate();
-  const [ product, setProduct ] = useState(null);
+  const [ product, setProduct ] = useState<discogs | null>(null)
 
   useEffect(() => {
-    const foundProduct = getProductByID(id)
+    const foundProduct = getProductByID(Number(id))
     if (!foundProduct) {
       navigate("/");
       return
@@ -48,7 +48,7 @@ export const Card = (): JSX.Element => {
         </div>
         <div>
           <h4>{t("artists")}</h4>
-          {product.artists.map((artist) => {
+          {product.artists.map((artist: artists) => {
             return (
               <p key={artist.name}>{artist.name}</p>
             )
@@ -80,7 +80,6 @@ export const Card = (): JSX.Element => {
         <button className="add-to-cart" onClick={() => addToCart(product.id)}>{t("add")}</button>
         <Link to="/products" className="go-back">{t("back")}</Link>
       </div>
-
     </div>
     </section>
     

@@ -1,19 +1,25 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
-import { getProductByID } from "../data/data";
+import { getProductByID, type discogs } from "../data/data";
 import { useLocalStorage } from "../customHook/useLocalStorage"
 
+type CartWithProducts = {
+  id: number,
+  product: discogs,
+  quantity: number
+}
+
 type CartItemType = {
-  id: string,
+  id: number,
   quantity: number
 }
 
 type CartContextType = {
   cartItems: CartItemType[],
-  addToCart: (productId: string) => void,
-  getCartItemsWithProducts: () => unknown[],
-  removeFromCart: (productId: string) => void,
-  updateQuantity: (productId: string, quantity: number) => void,
+  addToCart: (productId: number) => void,
+  getCartItemsWithProducts: () => CartWithProducts[],
+  removeFromCart: (productId: number) => void,
+  updateQuantity: (productId: number, quantity: number) => void,
   getCartTotal: () => number,
   clearCart: () => void,
   getAllItemQuantity: () => number
@@ -25,7 +31,7 @@ export default function CartProvider({ children }) {
   const { storedValue, setValue} = useLocalStorage("cart", [])
   const [cartItems, setCartItems ] = useState(storedValue);
 
-  function addToCart(productId: string): void {
+  function addToCart(productId: number): void {
     const existing = cartItems.find((item: CartItemType) => item.id === productId);
     if (existing) {
       const currentQuantity = existing.quantity;
@@ -43,25 +49,24 @@ export default function CartProvider({ children }) {
     }
 
   }
-
-  function getCartItemsWithProducts() {
+  function getCartItemsWithProducts(): CartWithProducts[] {
     console.log(cartItems.map((item: CartItemType) => ({
       ...item,
       product: getProductByID(item.id)
-    })))
+    })).filter((item: {item: CartItemType, product: discogs}) => item.product))
     return cartItems.map((item: CartItemType) => ({
       ...item,
       product: getProductByID(item.id)
-    })).filter(item => item.product)
+    })).filter((item: {item: CartItemType, product: discogs}) => item.product)
   }
 
-  function removeFromCart(productId: string): void {
+  function removeFromCart(productId: number): void {
     const filtered = cartItems.filter((item: CartItemType) => item.id !== productId )
     setCartItems(filtered);
     setValue(filtered)
   }
 
-  function updateQuantity(productId: string, quantity: number): void {
+  function updateQuantity(productId: number, quantity: number): void {
     if (quantity <= 0) {
       removeFromCart(productId);
       return;

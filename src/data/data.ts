@@ -1,4 +1,4 @@
-type artists = {
+export type artists = {
   name: string;
   anv: string;
   join: string;
@@ -17620,6 +17620,6 @@ export function getProducts() {
   return data;
 }
 
-export function getProductByID(id: string) {
-  return data.find((product) => product.id === Number(id));
+export function getProductByID(id: number) {
+  return data.find((product) => product.id === id);
 }
