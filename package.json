@@ -7,8 +7,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "pre-deploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "test": "echo test"
   },
