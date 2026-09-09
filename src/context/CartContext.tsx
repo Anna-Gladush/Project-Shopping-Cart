@@ -27,7 +27,7 @@ type CartContextType = {
 
 export const CartContext = createContext<CartContextType | null>(null);
 
-export default function CartProvider({ children }) {
+export default function CartProvider({ children }: { children: React.ReactNode }) {
   const { storedValue, setValue} = useLocalStorage("cart", [])
   const [cartItems, setCartItems ] = useState(storedValue);
 

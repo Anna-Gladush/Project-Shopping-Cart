@@ -22,9 +22,9 @@ export const Homepage = ({products}: ShopProps): JSX.Element => {
         </div>
         <h3 className="best-seller-title">Best sellers:</h3>
         <div className="best-seller">
-          {products.map((product: discogs, idx: number): JSX.Element => {
+          {products.map((product: discogs, idx: number): JSX.Element | null => {
               const img_src = product.images[0].resource_url;
-              if (idx > 3) return;
+              if (idx > 3) return null;
               return (
                 <Link to={`/products/${product.id}`} key={product.id} className="product-card">
                   <div>

@@ -17,7 +17,7 @@ export const Shop = ({products}: ShopProps): JSX.Element => {
   const category = searchParams.get('category') || 'all';
   const searchTerm = searchParams.get("q")?.toLowerCase() || "";
 
-  function getProductByCategory(category, searchTerm) {
+  function getProductByCategory(category: string, searchTerm: string) {
     return products.filter((product) => {
       const matchesNameInProduct = product.title.toLowerCase().includes(searchTerm) || product.artists[0].name.toLowerCase().includes(searchTerm)
       const matchesCategory = category === "all" ||product.genres.includes(category)
