@@ -3,18 +3,33 @@ import { createContext, useContext, useState } from "react";
 import { getProductByID } from "../data/data";
 import { useLocalStorage } from "../customHook/useLocalStorage"
 
+type CartItemType = {
+  id: string,
+  quantity: number
+}
 
-export const CartContext = createContext(null);
+type CartContextType = {
+  cartItems: CartItemType[],
+  addToCart: (productId: string) => void,
+  getCartItemsWithProducts: () => unknown[],
+  removeFromCart: (productId: string) => void,
+  updateQuantity: (productId: string, quantity: number) => void,
+  getCartTotal: () => number,
+  clearCart: () => void,
+  getAllItemQuantity: () => number
+}
+
+export const CartContext = createContext<CartContextType | null>(null);
 
 export default function CartProvider({ children }) {
   const { storedValue, setValue} = useLocalStorage("cart", [])
   const [cartItems, setCartItems ] = useState(storedValue);
 
-  function addToCart(productId) {
-    const existing = cartItems.find((item) => item.id === productId);
+  function addToCart(productId: string): void {
+    const existing = cartItems.find((item: CartItemType) => item.id === productId);
     if (existing) {
       const currentQuantity = existing.quantity;
-      const updatedCartItems = cartItems.map((item) =>
+      const updatedCartItems = cartItems.map((item: CartItemType) =>
         item.id === productId
           ? { id: productId, quantity: currentQuantity + 1 }
           : item
@@ -30,24 +45,24 @@ export default function CartProvider({ children }) {
   }
 
   function getCartItemsWithProducts() {
-    return cartItems.map(item => ({
+    return cartItems.map((item: CartItemType)=> ({
       ...item,
       product: getProductByID(item.id)
     })).filter(item => item.product)
   }
 
-  function removeFromCart(productId) {
-    const filtered = cartItems.filter(item => item.id !== productId )
+  function removeFromCart(productId: string): void {
+    const filtered = cartItems.filter((item: CartItemType) => item.id !== productId )
     setCartItems(filtered);
     setValue(filtered)
   }
 
-  function updateQuantity(productId, quantity) {
+  function updateQuantity(productId: string, quantity: number): void {
     if (quantity <= 0) {
       removeFromCart(productId);
       return;
     }
-    const mapped = cartItems.map((item) =>
+    const mapped = cartItems.map((item: CartItemType) =>
       item.id === productId
         ? { id: productId, quantity: quantity}
         : item
@@ -56,14 +71,14 @@ export default function CartProvider({ children }) {
     setValue(mapped);
   }
 
-  function getAllItemQuantity() {
-    return cartItems.reduce((prev, current) => {
+  function getAllItemQuantity(): number {
+    return cartItems.reduce((prev: number, current: CartItemType) => {
       return prev + current.quantity;
     }, 0)
   }
 
-  function getCartTotal() {
-    const total = cartItems.reduce((total, item): number => {
+  function getCartTotal(): number {
+    const total = cartItems.reduce((total: number, item: CartItemType): number => {
       const product = getProductByID(item.id)
       return total + (product ? product.lowest_price * item.quantity : 0);
     }, 0);
@@ -71,7 +86,7 @@ export default function CartProvider({ children }) {
     return Math.round(total * 100) / 100;
   }
 
-  function clearCart() {
+  function clearCart(): void {
     setCartItems([])
     setValue([])
   }
@@ -96,6 +111,5 @@ export default function CartProvider({ children }) {
 
 export function useCart() {
   const context = useContext(CartContext);
-
   return context;
 }
