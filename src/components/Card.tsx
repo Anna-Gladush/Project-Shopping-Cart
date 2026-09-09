@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 
 export const Card = (): JSX.Element => {
-  const { updateQuantity, cartItems, addToCart } = useCart();
+  const { updateQuantity, cartItems, addToCart } = useCart()!;
   const { t } = useTranslation("card");
   const { id } = useParams();
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ export const Card = (): JSX.Element => {
       </div>
       <div className="controller">
         <button className="add-to-cart" onClick={() => addToCart(product.id)}>{t("add")}</button>
-        <button className="go-back">{t("back")}</button>
+        <Link to="/products" className="go-back">{t("back")}</Link>
       </div>
 
     </div>

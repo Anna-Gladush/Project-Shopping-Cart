@@ -420,10 +420,15 @@ section.card {
   padding: 10px;
 }
 
-.card .controller button.go-back {
+.card .controller .go-back {
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px 20px;
 }
-.card .controller button.go-back:active {
+.card .controller .go-back:active {
   color: var(--red-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -608,5 +613,8 @@ input#gift {
 
   section.cart .cart-item {
     width: 100%;
+  }
+  .quantity-controls p {
+    margin-bottom: -30px;
   }
 }

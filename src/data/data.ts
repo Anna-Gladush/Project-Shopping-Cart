@@ -1,60 +1,59 @@
 type artists = {
-  name: string,
-  anv: string,
-  join: string,
-  role: string,
-  tracks: string,
-  id: number,
-  resource_url: string,
-  thumbnail_url?: string,
-}
+  name: string;
+  anv: string;
+  join: string;
+  role: string;
+  tracks: string;
+  id: number;
+  resource_url: string;
+  thumbnail_url?: string;
+};
 
 type videos = {
-  uri: string,
-  title: string,
-  description: string,
-  duration: number,
-  embed: boolean,  
-}
+  uri: string;
+  title: string;
+  description: string;
+  duration: number;
+  embed: boolean;
+};
 
-export type tracklist =    {
-  position: string,
-  type_: string,
-  title: string,
-  extraartists?: artists[],
-  duration: string,
-}
+export type tracklist = {
+  position: string;
+  type_: string;
+  title: string;
+  extraartists?: artists[];
+  duration: string;
+};
 
 export type discogs = {
-  id: number,
-  main_release: number,
-  most_recent_release: number,
-  resource_url: string,
-  uri: string,
-  versions_url: string,
-  main_release_url: string,
-  most_recent_release_url: string,
-  num_for_sale: number,
-  lowest_price: number,
-  images: 
-    {
-      type: string,
-      uri: string,
-      resource_url: string,
-      uri150: string,
-      width: number,
-      height: number,
-    }[],
-  genres: string[],
-  styles: string[],
-  year: number,
-  tracklist: tracklist[],
-  artists: artists[],
-  title: string,
-  data_quality: string,
-  notes?: string,
-  videos?: videos[]
-}
+  id: number;
+  main_release: number;
+  most_recent_release: number;
+  resource_url: string;
+  uri: string;
+  versions_url: string;
+  main_release_url: string;
+  most_recent_release_url: string;
+  num_for_sale: number;
+  lowest_price: number;
+  images: {
+    type: string;
+    uri: string;
+    resource_url: string;
+    uri150: string;
+    width: number;
+    height: number;
+  }[];
+  genres: string[];
+  styles: string[];
+  year: number;
+  tracklist: tracklist[];
+  artists: artists[];
+  title: string;
+  data_quality: string;
+  notes?: string;
+  videos?: videos[];
+};
 
 export const data: discogs[] = [
   {
@@ -870,7 +869,16 @@ export const data: discogs[] = [
         height: 564,
       },
     ],
-    genres: ["Rock", "Funk / Soul", "Blues", "Folk, World, & Country", "Рок", "Фанк / Соул", "Блюз", "Фолк, народная музыка и кантри"],
+    genres: [
+      "Rock",
+      "Funk / Soul",
+      "Blues",
+      "Folk, World, & Country",
+      "Рок",
+      "Фанк / Соул",
+      "Блюз",
+      "Фолк, народная музыка и кантри",
+    ],
     styles: ["Pop Rock", "Blues Rock", "Rock & Roll"],
     year: 2026,
     tracklist: [
@@ -10667,7 +10675,12 @@ export const data: discogs[] = [
         height: 600,
       },
     ],
-    genres: ["Rock", "Folk, World, & Country", "Рок", "Фолк, народная музыка и кантри"],
+    genres: [
+      "Rock",
+      "Folk, World, & Country",
+      "Рок",
+      "Фолк, народная музыка и кантри",
+    ],
     styles: ["Folk Rock", "Blues Rock"],
     year: 1965,
     tracklist: [
@@ -17607,6 +17620,6 @@ export function getProducts() {
   return data;
 }
 
-export function getProductByID(id) {
-  return data.find(product => product.id === Number(id))
+export function getProductByID(id: string) {
+  return data.find((product) => product.id === Number(id));
 }

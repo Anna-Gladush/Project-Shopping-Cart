@@ -45,7 +45,11 @@ export default function CartProvider({ children }) {
   }
 
   function getCartItemsWithProducts() {
-    return cartItems.map((item: CartItemType)=> ({
+    console.log(cartItems.map((item: CartItemType) => ({
+      ...item,
+      product: getProductByID(item.id)
+    })))
+    return cartItems.map((item: CartItemType) => ({
       ...item,
       product: getProductByID(item.id)
     })).filter(item => item.product)
@@ -111,5 +115,6 @@ export default function CartProvider({ children }) {
 
 export function useCart() {
   const context = useContext(CartContext);
+  if (!context) throw new Error("useCart must be used within CartProvider");
   return context;
 }
