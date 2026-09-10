@@ -40,7 +40,7 @@ jobs:
     strategy:
       matrix:
         # Можно назвать как угодно, просто список
-        node-version: [14, 16], 22
+        node-version: [14, 16, 22 ]
         os: [ubuntu-latest, windows-latest]
         # Автоматически возьмет все значения
     runs-on: ${{ matrix.os }}
