@@ -3,34 +3,59 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - ".github/workflows/*"
+    # paths-ignore:
+    #   - ".github/workflows/*"
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Get repository code
         uses: actions/checkout@v7
+      - name: Cache dependecies
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          # Dynamic key!
+          key: node-module-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependecies
         run: npm ci #npm install but safer
       - name: Test application
         run: npm run test
   lint:
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - name: Get repository code
         uses: actions/checkout@v7
+      - name: Cache dependecies
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: node-module-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependecies
         run: npm ci
       - name: Lint application
         run: npm run lint
   build:
-    runs-on: ubuntu-latest
-    needs: lint
+    needs: [lint, test]
+    strategy:
+      matrix:
+        # Можно назвать как угодно, просто список
+        node-version: [14, 16], 22
+        os: [ubuntu-latest, windows-latest]
+        # Автоматически возьмет все значения
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Get repository code
         uses: actions/checkout@v7
+      - name: Install NodeJS
+        uses: actions/setup-node@v7
+          with: 
+            node-version: ${{ matrix.node-version }}
+      - name: Cache dependecies
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: node-module-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependecies
         run: npm ci
       - name: Build application
